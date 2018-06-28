@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Sentence Search</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
+  <script src="script/download_sentences.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+</head>
+
+<body>
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+
+        
+                    
+                  <div class="search-form">
+                      <form name="searchForm" action="javascript:startSearch()">
+                          <div class="input-group">
+                              <input 
+                                type="text" 
+                                placeholder="search for a sentence" 
+                                name="search" 
+                                value="starting to load sentences ...." 
+                                id="searchInput" 
+                                class="form-control input-lg mr-1"
+                                disabled>
+                                     
+                              <div class="input-group-btn">
+                                  <button 
+                                    id="searchButton"
+                                    class="btn btn-lg btn-primary" 
+                                    type="submit" 
+                                    disabled>
+                                      <ruby><rb>検索</rb><rp>(</rp><rt>けんさく</rt><rp>)</rp></ruby>
+                                  </button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+                  
+                  <div id="results-info" style="display: none;">
+                  <small>
+                      <b id="num-results">160</b> results found for: <b id="search-word"class="text-navy">"Bootdey"</b>. 
+                  </small>
+                  <small>Search time  (<span id="search-time">0.23</span> seconds)</small>
+                  </div>
+
+                  <div id="search-results-list" > </div>
+                  <div id="results-list-end" class="mb-5 mt-2" style="display:none;">That's all folks!</div>
+                  <div id="site-info">
+                    <h3> Search Japanese sentences with native AUDIO! <sup><sup>Alpha</sup></sup></h3>
+                    <p> Search the collection of <b><span id="nSentences">22 000</span></b> sentences, all with native audio</p>
+                    <p> Sentences were geathered from various sources:</p>
+                    <ul>
+                      <li>iKnow 
+                        <ul>
+                          <li><a href="https://iknow.jp/courses/750492">Minna no Nihongo</a>, </li>
+                          <li><a href="https://iknow.jp/content/japanese">core 6k</a> </li>
+                        </ul>
+                      </li>
+                      <li>jpod101 
+                        <ul>
+                          <li><a href="https://iknow.jp/courses/750492">core 2k</a>, </li>
+                          <li><a href="https://www.japanesepod101.com/learningcenter/account/wordbank">word bank</a> </li>
+                          <li>example senteces from lessons
+                        </ul>
+                      </li>
+                      <li>Anki decks</li>
+                        <ul>
+                          <li>Nayr's vocab deck 5k <a href="http://www.mediafire.com/file/7e34505nq7k04wk/Core5000_v2.5.apkg">link</a></li>
+                          <li>6k anki deck. <a href="https://ankiweb.net/shared/info/1312109116">link</a> 
+                              <small>(They are mostly from iKnow, but some are unique)</small>
+                          </li>
+                        </ul>
+                      <li><a href="https://tatoeba.org/eng/">tatoeba</a></li>
+                    </ul>
+                    <p>If you know any more sources please
+                       contact me at <b>tonipravoime@gmail.com</b>. I will try to add 
+                       them as soon as possible, depending on how difficult they are to extract :P.
+                       Thanks!</p>
+                    
+                    <br/>   
+                    <p> Depending on how popular this site gets, I am going to implement the following 
+                        features:</p>
+                    <ul>
+                      <li>Searching japanese sentences with romaji</li>
+                      <li><b>Adding sentences to Anki deck</b></li>
+                      <li>Advance search option (sorting, tags ...)</li>
+                      <li>Add furigana to sentences</li>
+                      <li>Reporting sentences</li>
+                      <li>Bug report interface</li>
+                      <li> ... </li>
+                      <li> Any ideas :)</li>
+                    </ul> 
+                     
+                  </div>
+                  
+              </div>
+        </div>
+    </div>
+   
+  <!-- preload images -->
+  <div style="display:none;">
+    <img src="img/audio_loading.svg" />
+    <img src="img/audio_idle.svg" />
+    <img src="img/audio_error.svg" />
+    <img src="img/audio_playing.svg" />
+  </div>  
+<!--
+<div id="info" style="position:fixed;bottom:0;right:0;">asdasd</div> 
+-->
+</div>
+
+  <script src="script/audio.js"></script>
+  <script src="script/search.js"></script>
+</body>
+
+
+</html>
+
+

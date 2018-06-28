@@ -1,0 +1,211 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Poljch's home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+<script>
+
+var data;
+
+words = [];
+
+
+$(document).ready(function() {
+  let wordListsUrls = [
+    "./data/iknow_words.json",
+    "./data/lessons_examples.json",
+    "./data/word-list.json",
+    "./data/anki6k.json",
+    "./data/anki5k.json",
+  ]
+
+  for(let i=0; i<wordListsUrls.length; i++) {
+    downloadSentences(wordListsUrls[i]);
+  }
+
+});
+
+function downloadSentences(url){
+  $.ajax({
+  url: url, 
+  success: function(newWords){
+    console.log("Downloaded " + url);
+    words = words.concat(newWords)
+    console.log("Added" + newWords.length + ". Now in total " + words.length);
+  },
+  error: function (error) {
+    console.log("this is an error message:", error);
+    console.log(error.responseText)
+  },
+  complete: function (a) {
+    console.log(a)
+  }
+  });
+
+}
+
+
+function searchAndDisplay(query) {
+  $("#results-info").hide();
+    
+  console.log(parent.location.hash);
+  // set search query into hash
+  parent.location.hash = query;
+
+  var requestStart = new Date().getTime();
+
+  var results = find(query);
+  
+  results.sort(function(a,b) {
+    return (a.score < b.score) ? 1 : ((b.score < a.score) ? -1 : a.sentence.localeCompare(b.sentence));
+  }); 
+  
+  displayResults(results);
+
+  var requestTime = (new Date().getTime() - requestStart) / 1000;
+  
+  // show reuslts info
+  $("#results-info").show();
+  $("#num-results").text(results.length);
+  $("#search-word").text(query);
+  $("#request-time").text(requestTime);
+}
+
+function displayResults(results) {
+  $('#search-results-list').empty();
+  
+  for(var i=0; i<results.length; i++) {
+    appendNewSearchResult(results[i]);
+  }
+}
+
+
+function setQueryBold(result) {
+  return result.sentence.replace(new RegExp(result.query,"g"), '<bld>'+result.query+'</bld>');
+}
+
+//<span class="resultType '+ result.type +'">['+ result.type +'] </span>
+function appendNewSearchResult(result) {
+  
+  $('#search-results-list').append('\
+  <div class="search-result">\
+      \
+      <span>'+ setQueryBold(result) +'</span> \
+      <span>'+ result.eng +'</span> \
+      <audio src="'+ result.audio +'" preload="none" controls> </audio> \
+  </div> \
+  <div class="hr-line-dashed"></div>\
+  ');
+}
+
+
+function scoreResult(result) {
+  types = {
+    "sentence" : 100,
+    "word" : 10,
+  }
+  var score = 0;
+  if(types[result.type]) score += types[result.type]
+  return score;
+}
+
+function find(query) {
+  var results = [];
+
+  for(var i=0; i<words.length; i++) {
+    let word = words[i];
+    
+    // searach for word
+    /*
+    if(word.name.search(query) > -1 ||
+       word.kana.search(query) > -1) {
+      
+      var result = {
+        "type" : "word",
+        "sentence" : word.name,
+        "audio": word.audio,
+        "query": query,   
+      }
+      result["score"] = scoreResult(result);
+      results.push(result);
+    }
+    */
+    
+    
+    // search inside examples
+    if(word.examples) {
+      for(let j=0; j<word.examples.length; j++) {
+        let example = word.examples[j];
+        
+        if(example.jap.sentence.search(query) > -1) {
+          var result = {
+            "type" : "sentence",
+            "sentence": example.jap.sentence,
+            "audio" : example.jap.audio,
+            "eng" : example.eng.sentence,
+            "query": query,
+          }
+          result["score"] = scoreResult(result);
+          results.push(result);
+        }
+      }
+    }
+  }
+  
+  return results;
+}
+
+
+</script>
+
+</head>
+<body>
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+        
+                    <h3> Search Japanese sentences</h3>
+        
+                    <div class="search-form">
+                        <form name="searchForm" action="javascript:searchAndDisplay(search.value)">
+                            <div class="input-group">
+                                <input type="text" placeholder="search for a japanese word in a sentence" name="search" value="これ" id="search" class="form-control input-lg">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-lg btn-primary" type="submit">
+                                        検索　けんさく
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div id="results-info" style="display: none;">
+                    <small>
+                        <b id="num-results">160</b> results found for: <b id="search-word"class="text-navy">"Bootdey"</b>, 
+                    </small>
+                    <small>Request time  (<span id="request-time">0.23</span> seconds)</small>
+                    </div>
+
+                    <div id="search-results-list">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+</html>
+
+
+
