@@ -1,9 +1,9 @@
-var results;
-var visibleResults = 0; // currently visible results
-var loadPerScroll = 20; // how many results are additionaly loaded when user hits bottom
-var firstNumResultsShown = 2; // how many results are shown when user hits search
-var lastSearchTime = 0;
-var lastSearchQuery = "";
+let results;
+let visibleResults = 0; // currently visible results
+let loadPerScroll = 20; // how many results are additionaly loaded when user hits bottom
+let firstNumResultsShown = 2; // how many results are shown when user hits search
+let lastSearchTime = 0;
+let lastSearchQuery = "";
 
 function startSearch() {
     let query = $("#searchInput").val();
@@ -19,15 +19,14 @@ Url hash value changes when user is navigating using back and forward buttons
 $(window).on('hashchange', () => {
   let searchValue = decodeURIComponent(parent.location.hash).substring(1);
   $("#searchInput").val(searchValue);
-  console.log("update hash")
   startSearch();
 });
 
 
-var rawTitle;
+let rawTitle;
 function updateUrlHashAndTitle(newHash) {
   //history.replaceState(null, null, document.location.pathname + '#' + newHash);
-  parent.location.hash = newHash
+    parent.location.hash = newHash;
   
   if(!rawTitle) rawTitle = document.title;
   document.title = newHash + " - " + rawTitle;
@@ -38,7 +37,7 @@ function searchAndDisplay(query) {
   
   // disable quick　successive searches with same query 
   search_Time = new Date();
-  if(lastSearchQuery == query && search_Time - lastSearchTime < 1000) return;
+    if (lastSearchQuery === query && search_Time - lastSearchTime < 1000) return;
   lastSearchTime = search_Time;
   lastSearchQuery = query;
   
@@ -48,10 +47,10 @@ function searchAndDisplay(query) {
   $('#search-results-list').empty();
   
   // set search query into url hash
-  updateUrlHashAndTitle(query)
+    updateUrlHashAndTitle(query);
 
 
-  var requestStart = new Date().getTime();
+    const requestStart = new Date().getTime();
 
   results = search(query);
   
@@ -64,10 +63,13 @@ function searchAndDisplay(query) {
   displayResults(results, 0, firstNumResultsShown);
   
   // load new results until the wole page is full of results
-  maxFirstLoadSafety = 50; // to prevent inf loop
-  while(loadMoreResultsOnScroll() && maxFirstLoadSafety-- > 0);
+    let maxFirstLoadSafety = 50; // to prevent inf loop
+    do {
+        let hasMoreToLoad = loadMoreResultsOnScroll();
+    }
+    while (hasMoreToLoad && maxFirstLoadSafety-- > 0);
 
-  var searchTime = (new Date().getTime() - requestStart) / 1000;
+    const searchTime = (new Date().getTime() - requestStart) / 1000;
   
   // show reuslts info
   $("#results-info").show();
@@ -81,14 +83,14 @@ function displayResults(results, start, end) {
   if(!end) end = start + loadPerScroll;
   
   end = Math.min(end, results.length);
-  
-  for(var i=start; i < end; i++) {
+
+    for (let i = start; i < end; i++) {
     appendNewSearchResult(results[i], i);
   }
   
   visibleResults = end;
   handleAudio();
-  return visibleResults == results.length; 
+    return visibleResults === results.length;
 }
 
 /*
@@ -101,7 +103,7 @@ function loadMoreResultsOnScroll() {
   //$("#info").html(Math.round(distanceToBottom));
   
   if(results && results.length > 0 && distanceToBottom　< 200) {
-    var atTheEnd = displayResults(results, visibleResults)
+      let atTheEnd = displayResults(results, visibleResults);
     if(atTheEnd) $("#results-list-end").show();
     return !atTheEnd;
   }
@@ -120,17 +122,26 @@ function setQueryBold(query, sentence) {
 }
 
 function appendNewSearchResult(result, index) {
-  
-  $('#search-results-list').append('\
+
+    let resultElement = $('\
   <div class="search-result">\
       <small>'+ (index+1) + ' </small>\
-      <span>'+ setQueryBold(result.query, result.sentence) +'</span> \
-      <span>'+ setQueryBold(result.query, result.eng) +'</span> \
-      <a href="'+ result.audio +'" class="audioButton audioIdle" onclick="return false"> </a> \
-      <a href="'+ result.audio +'" target="_blank" download="'+result.sentence+'.mp3">download</a> \
+      <span class="jap">' + setQueryBold(result.query, result.sentence) + '</span> \
+      <span class="eng">' + setQueryBold(result.query, result.eng) + '</span> \
+      <a href="' + result.audio + '" class="audioButton audioIdle ml-lg-2" onclick="return false"></a> \
+      <a class="audioDownload ml-lg-3" href="' + result.audio + '" target="_blank" download="' + result.sentence + '.mp3"></a> \
+      <button class="btn btn-sm btn-outline-secondary ml-lg-3">add to anki</button> \
+      <div class="hr-line-dashed"></div>\
   </div> \
-  <div class="hr-line-dashed"></div>\
   ');
+
+    if (typeof showAnkiDialog !== 'undefined') {
+        (function (resultElement) {
+            resultElement.find("button").click(() => showAnkiDialog(resultElement, result));
+        })(resultElement);
+    }
+
+    resultElement.appendTo('#search-results-list');
 }
 
 
@@ -142,21 +153,21 @@ function scoreSentence(query, sentence) {
 }
 
 function search(query) {
-    var results = [];
-    
-    for(var i=0; i<sentences.length; i++) {
+    let results = [];
+
+    for (let i = 0; i < sentences.length; i++) {
         let sentence = sentences[i];
         
         let score = scoreSentence(query, sentence);
         if(score > 0) {
-          var result = {
+            let result = {
             "sentence": sentence.jap,
             "audio" : sentence.audio_jap,
             "eng" : sentence.eng,
             "source" : sentence.source,
             "score" : score,
             "query": query,
-          }
+            };
           results.push(result);
         }
     }

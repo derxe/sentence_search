@@ -9,14 +9,31 @@ body {
     border-color: #E7EAEC;
     border-image: none;
     border-style: solid solid none;
-    border-width: 1px 0px;
+    border-width: 1px 0;
+}
+
+.audioDownload {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    opacity: 0.5;
+    background: url(img/audio_download.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.audioDownload:hover {
+    opacity: 1
 }
 
 .audioButton {
   width: 15px;
   height: 15px;
   display: inline-block;
-  margin-left: 10px;
+}
+
+.audioButton:hover {
+    opacity: 1
 }
 
 .audioIdle {
@@ -33,9 +50,6 @@ body {
   background-repeat: no-repeat;
 }
 
-.audioButton:hover {
-  opacity: 1
-}
 
 .audioPlaying {
   opacity: 1;
@@ -75,10 +89,6 @@ body {
 
 .search-result span bld {
     color: #009c06; /* dark green */
-}
-
-.search-result span b {
-    font-weight: normal;
 }
 
 .search-result small {
