@@ -129,7 +129,7 @@ function appendNewSearchResult(result, index) {
       <span class="jap">' + setQueryBold(result.query, result.sentence) + '</span> \
       <span class="eng">' + setQueryBold(result.query, result.eng) + '</span> \
       <a href="' + result.audio + '" class="audioButton audioIdle ml-lg-2" onclick="return false"></a> \
-      <a class="audioDownload ml-lg-3" href="' + result.audio + '" target="_blank" download="' + result.sentence + '.mp3"></a> \
+      <a class="audioDownload ml-lg-2" href="' + result.audio + '" target="_blank" download="' + result.sentence + '.mp3"></a> \
       <button class="btn btn-sm btn-outline-secondary ml-lg-3">add to anki</button> \
       <div class="hr-line-dashed"></div>\
   </div> \
@@ -174,7 +174,5 @@ function search(query) {
     
     return results;
 }
-
-
 
 
