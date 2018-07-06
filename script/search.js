@@ -64,8 +64,9 @@ function searchAndDisplay(query) {
   
   // load new results until the wole page is full of results
     let maxFirstLoadSafety = 50; // to prevent inf loop
+    let hasMoreToLoad;
     do {
-        let hasMoreToLoad = loadMoreResultsOnScroll();
+        hasMoreToLoad = loadMoreResultsOnScroll();
     }
     while (hasMoreToLoad && maxFirstLoadSafety-- > 0);
 
@@ -125,12 +126,12 @@ function appendNewSearchResult(result, index) {
 
     let resultElement = $('\
   <div class="search-result">\
-      <small>'+ (index+1) + ' </small>\
+      <small class="sentence-number">' + (index + 1) + ' </small>\
       <span class="jap">' + setQueryBold(result.query, result.sentence) + '</span> \
       <span class="eng">' + setQueryBold(result.query, result.eng) + '</span> \
-      <a href="' + result.audio + '" class="audioButton audioIdle ml-lg-2" onclick="return false"></a> \
-      <a class="audioDownload ml-lg-2" href="' + result.audio + '" target="_blank" download="' + result.sentence + '.mp3"></a> \
-      <button class="btn btn-sm btn-outline-secondary ml-lg-3">add to anki</button> \
+      <a href="' + result.audio + '" class="audioButton audioIdle" onclick="return false"></a> \
+      <a class="audioDownload" href="' + result.audio + '" target="_blank" download="' + result.sentence + '.mp3"></a> \
+      <button class="btn btn-sm btn-outline-secondary anki-add" style="display: none;">add to anki</button> \
       <div class="hr-line-dashed"></div>\
   </div> \
   ');

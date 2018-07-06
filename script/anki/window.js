@@ -18,12 +18,13 @@ let replaceFields = {
 
 let buttonOldText;
 let buttonHide = null;
+let hideWindowButtonText = "Cancel"
 
 function showAnkiDialog(resultElement, resutlData) {
 
     let buttonClicked = resultElement.find("button");
 
-    if (buttonHide && buttonHide.html() === "Hide") {
+    if (buttonHide && buttonHide.html() === hideWindowButtonText) {
         // simply hide visible anki dialog if a current button that is clicked is a hide button
         buttonHide.html(buttonOldText);
         buttonHide = null;
@@ -40,7 +41,7 @@ function showAnkiDialog(resultElement, resutlData) {
         // change button that was clicked button into a hide button
         buttonHide = buttonClicked;
         buttonOldText = buttonHide.html();
-        buttonHide.html("Hide");
+        buttonHide.html(hideWindowButtonText);
 
         // generate anki add note dialog and append it to clicked result element
         let dialog = $(ankiDialogHtmlTemplate);
