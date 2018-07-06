@@ -12,6 +12,26 @@ body {
     border-width: 1px 0;
 }
 
+.enable-anki {
+    opacity: 0.7;
+}
+
+#search-results-list {
+    padding-top: 1em;
+}
+
+.search-result .sentence-number {
+    margin-right: 0.5em;
+}
+
+.search-result .anki-add {
+    margin-left: 0.8rem;
+}
+
+.search-result .eng {
+    margin-left: 0.5rem;
+}
+
 .audioDownload {
     width: 15px;
     height: 15px;
@@ -20,6 +40,7 @@ body {
     background: url(img/audio_download.svg);
     background-size: contain;
     background-repeat: no-repeat;
+    margin-left: .5rem;
 }
 
 .audioDownload:hover {
@@ -30,6 +51,7 @@ body {
   width: 15px;
   height: 15px;
   display: inline-block;
+    margin-left: .5rem;
 }
 
 .audioButton:hover {
@@ -69,9 +91,10 @@ body {
     margin-top: 10px;
 }
 
-#search-results-list {
+#site-info {
   margin-top: 25px;
 }
+
 .search-result h3 {
     margin-bottom: 0;
     font-size: 20px;
