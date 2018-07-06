@@ -130,9 +130,9 @@ function appendNewSearchResult(result, index) {
       <span class="jap">' + setQueryBold(result.query, result.sentence) + '</span> \
       <span class="eng">' + setQueryBold(result.query, result.eng) + '</span> \
       <a href="' + result.audio + '" class="audioButton audioIdle" onclick="return false"></a> \
-      <a class="audioDownload" href="' + result.audio + '" target="_blank" download="' + result.sentence + '.mp3"></a> \
-      <a href="../report.html?sen=' + encodeURIComponent(JSON.stringify(result)) + '" title="Report a problem" class="report"></a>\
-      <button class="btn btn-sm btn-outline-secondary anki-add" style="display: none;">add to anki</button> \
+      <a class="audioDownload show-on-hover" href="' + result.audio + '" target="_blank" download="' + result.sentence + '.mp3"></a> \
+      <a href="../report.html?sen=' + encodeURIComponent(JSON.stringify(result)) + '" title="Report a problem" class="report show-on-hover"></a>\
+      <button class="btn btn-sm btn-outline-secondary anki-add show-on-hover" style="display: none;">add to anki</button> \
       <div class="hr-line-dashed"></div>\
   </div> \
   ');

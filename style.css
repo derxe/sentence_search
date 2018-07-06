@@ -20,6 +20,19 @@ body {
     padding-top: 1em;
 }
 
+.search-result:hover .show-on-hover {
+    visibility: visible;
+    transition: visibility 0s, opacity 0.5s linear;
+    opacity: 1 !important;
+}
+
+.show-on-hover {
+    visibility: hidden;
+    transition: visibility 2s, opacity 0.25s linear;
+    opacity: 0 !important;
+}
+
+
 .search-result .sentence-number {
     margin-right: 0.5em;
 }
