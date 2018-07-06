@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Sentence Search - Report a problem</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
+</head>
+
+<body>
+
+<script>
+    let reportedSentence;
+
+    function getQueryParams(qs) {
+        qs = qs.split('+').join(' ');
+
+        var params = {},
+            tokens,
+            re = /[?&]?([^=]+)=([^&]*)/g;
+
+        while (tokens = re.exec(qs)) {
+            params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+        }
+
+        return params;
+    }
+
+    $(document).ready(() => {
+        let params = getQueryParams(document.location.search);
+        let rawJson = decodeURIComponent(params.sen);
+        let reportedSentence = JSON.parse(rawJson);
+
+        $("#jap").html(reportedSentence.sentence);
+        $("#eng").html(reportedSentence.eng);
+        $("#audio").attr("href", reportedSentence.audio);
+        handleAudio();
+
+        $("#submit-report").click(() => {
+            let reportMessage = $("#report-message").val();
+
+            let report = {
+                "date": new Date() + "",
+                "message": reportMessage,
+                "sentence": reportedSentence
+            }
+
+            $("#submit-report").attr("disabled", "disabled");
+            $("#submit-report").html("Sending ...");
+            $("#lovely-message").hide();
+            $("#error-message").hide();
+
+            $.ajax({
+                type: "POST",
+                url: "https://receptomanijalogi.firebaseio.com/report.json",
+                data: JSON.stringify(report),
+                success: function () {
+                    console.log("Report successfully sendededed!")
+
+                    $("#submit-report").html("Report Sent");
+                    $("#lovely-message").show();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.error("Error sending a report", ajaxOptions, thrownError);
+                    $("#submit-report").attr("disabled", false);
+                    $("#submit-report").html("Try again?");
+
+                    $("#eror-message").html("There was an error sending the report: " + thrownError);
+                    $("#eror-message").show();
+                },
+                dataType: "json",
+                contentType: "application/json"
+            });
+        });
+    });
+
+
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h4 class="mt-3">Report a problem</h4>
+            <p>Please describe what is wrong with the sentence: </p>
+            Japanese: <b><span id="jap"></span></b></b> <a id="audio" class="audioButton audioIdle"
+                                                           onclick="return false"></a>
+            <br>
+            English: <span id="eng"></span>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <textarea class="form-control textarea" rows="3" id="report-message"
+                                  placeholder="Describe what is wrong with the sentence"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="submit-report" class="btn main-btn pull-right">Send report</button>
+                </div>
+            </div>
+            <br>
+            <div id="error-message" class="alert alert-danger" style="display:none"></div>
+            <div id="lovely-message" class="alert alert-success" style="display:none">
+                Thank you so much for submitting your report. <br>
+                Your contribution is much appreciated <3
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- preload images -->
+<div style="display:none;">
+    <img src="img/audio_loading.svg"/>
+    <img src="img/audio_idle.svg"/>
+    <img src="img/audio_error.svg"/>
+    <img src="img/audio_playing.svg"/>
+</div>
+
+<script src="script/audio.js"></script>
+
+</body>
+
+
+</html>
+
+
