@@ -9,7 +9,22 @@
     <script src="script/download_sentences.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.png">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120824873-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-120824873-1');
+    </script>
 </head>
+
 
 <body>
 <div class="container bootstrap snippet">
@@ -54,7 +69,9 @@
                     <small>Search time (<span id="search-time">0.23</span> seconds)</small>
                 </div>
                 <div class="enable-anki">
-                    <input type="checkbox" class="mt-lg-3" onclick="$('.anki-add').toggle()"> Enable adding cards to
+                    <input type="checkbox" class="mt-lg-3"
+                           onclick="this.checked ? $('.anki-add').show() : $('.anki-add').hide()"> Enable adding cards
+                    to
                     <b>Anki</b> <sup>
                     <small>It is tailored to my needs and only works if you know what you are doing.</small>
                 </sup><br>
@@ -62,7 +79,7 @@
                 <div id="search-results-list"></div>
                 <div id="results-list-end" class="mb-5 mt-2" style="display:none;">That's all folks!</div>
                 <div id="site-info">
-                    <h3> Search Japanese sentences with native AUDIO! <sup><sup>Alpha</sup></sup></h3>
+                    <h3> Search Japanese sentences with native AUDIO! <sup><sup>Beta</sup></sup></h3>
                     <p> Search the collection of <b><span id="nSentences">22 000</span></b> sentences, all with native
                         audio</p>
                     <p> Sentences were geathered from various sources:</p>
@@ -75,7 +92,8 @@
                         </li>
                         <li>jpod101
                             <ul>
-                                <li><a href="https://iknow.jp/courses/750492">core 2k</a>,</li>
+                                <li><a href="https://www.japanesepod101.com/japanese-word-lists/?coreX=2000">core 2k</a>,
+                                </li>
                                 <li><a href="https://www.japanesepod101.com/learningcenter/account/wordbank">word
                                     bank</a></li>
                                 <li>example senteces from lessons
@@ -106,7 +124,7 @@
                         <li><b>Adding sentences to Anki deck</b></li>
                         <li>Advance search option (sorting, tags ...)</li>
                         <li>Add furigana to sentences</li>
-                        <li>Reporting sentences</li>
+                        <li>Reporting sentences <b>Done</b></li>
                         <li>Bug report interface</li>
                         <li> ...</li>
                         <li> Any ideas :)</li>

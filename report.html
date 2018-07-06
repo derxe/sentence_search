@@ -13,8 +13,6 @@
 <body>
 
 <script>
-    let reportedSentence;
-
     function getQueryParams(qs) {
         qs = qs.split('+').join(' ');
 
@@ -84,8 +82,8 @@
         <div class="col-lg-6">
             <h4 class="mt-3">Report a problem</h4>
             <p>Please describe what is wrong with the sentence: </p>
-            Japanese: <b><span id="jap"></span></b></b> <a id="audio" class="audioButton audioIdle"
-                                                           onclick="return false"></a>
+            Japanese: <span id="jap"></span> <a id="audio" class="audioButton audioIdle"
+                                                onclick="return false"></a>
             <br>
             English: <span id="eng"></span>
             <br>
