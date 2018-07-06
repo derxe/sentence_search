@@ -131,6 +131,7 @@ function appendNewSearchResult(result, index) {
       <span class="eng">' + setQueryBold(result.query, result.eng) + '</span> \
       <a href="' + result.audio + '" class="audioButton audioIdle" onclick="return false"></a> \
       <a class="audioDownload" href="' + result.audio + '" target="_blank" download="' + result.sentence + '.mp3"></a> \
+      <span title="Report sentence" class="report"></span>\
       <button class="btn btn-sm btn-outline-secondary anki-add" style="display: none;">add to anki</button> \
       <div class="hr-line-dashed"></div>\
   </div> \
