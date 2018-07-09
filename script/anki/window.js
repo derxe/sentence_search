@@ -18,7 +18,7 @@ let replaceFields = {
 
 let buttonOldText;
 let buttonHide = null;
-let hideWindowButtonText = "Cancel"
+let hideWindowButtonText = "Collapse"
 
 function showAnkiDialog(resultElement, resutlData) {
 
@@ -117,7 +117,7 @@ function ankiAddNewNoteFromFields() {
 
     // note object that we will sand to anki api
     note = {
-        "deckName": "test_deck_deletme",
+        "deckName": "autoadd",
         "modelName": $(".anki-model").val(),
         "fields": fields,
         "tags": ["autoadd"],
