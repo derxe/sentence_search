@@ -102,8 +102,8 @@ function loadMoreResultsOnScroll() {
   let distanceToBottom = $(document).height() - $(window).height() - $(window).scrollTop();
   
   //$("#info").html(Math.round(distanceToBottom));
-  
-  if(results && results.length > 0 && distanceToBottom　< 200) {
+
+    if (results && results.length > 0 && distanceToBottom < 600) {
       let atTheEnd = displayResults(results, visibleResults);
     if(atTheEnd) $("#results-list-end").show();
     return !atTheEnd;
@@ -131,8 +131,8 @@ function appendNewSearchResult(result, index) {
       <span class="eng">' + setQueryBold(result.query, result.eng) + '</span> \
       <a href="' + result.audio + '" class="audioButton audioIdle" onclick="return false" title="Play sound"></a> \
       <a class="audioDownload show-on-hover" href="' + result.audio + '" target="_blank" download="' + result.sentence + '.mp3" title="Download audio"></a> \
-      <a href="../report.html?sen=' + encodeURIComponent(JSON.stringify(result)) + '" title="Report a problem" class="report show-on-hover"></a>\
-      <button class="btn btn-sm btn-outline-secondary anki-add show-on-hover" style="display: none;">add to anki</button> \
+      <a href="../report.html?sen=' + encodeURIComponent(JSON.stringify(result)) + '" title="Report a problem" class="report show-on-hover" target="_blank"></a>\
+      <button class="btn btn-sm btn-outline-secondary anki-add show-on-hover">add to anki</button> \
       <div class="hr-line-dashed"></div>\
   </div> \
   ');
