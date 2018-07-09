@@ -66,8 +66,8 @@
                     $("#submit-report").attr("disabled", false);
                     $("#submit-report").html("Try again?");
 
-                    $("#eror-message").html("There was an error sending the report: " + thrownError);
-                    $("#eror-message").show();
+                    $("#error-message").html("There was an error sending the report: " + thrownError);
+                    $("#error-message").show();
                 },
                 dataType: "json",
                 contentType: "application/json"
