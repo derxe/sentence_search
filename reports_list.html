@@ -34,6 +34,8 @@
         $.get(reportedSentenceUrl, function (reports) {
             console.log(reports);
 
+            // since sorting objects is not possible we first extract the keys
+            // sorth them and then use them to display the sorted data
             let sortedKeys = Object.keys(reports).sort(function (a, b) {
                 return reportsComapre(reports[a], reports[b])
             })
@@ -72,23 +74,23 @@
 
         template = $(`
             <li class="list-group-item ${report.solved ? "report-solved" : ""}">
-               <div class="row toggle" id="dropdown-detail-${reportId}" data-toggle="detail-${reportId}">
-                  <div class="col-xs-10">
-                     <small class="report-date">${date.toLocaleDateString()}</small> ${report.message}
-                  </div>
-                  <div class="col-xs-2"><i class="fa fa-chevron-down pull-right"></i></div>
+            <div class="row toggle" id="dropdown-detail-${reportId}" data-toggle="detail-${reportId}">
+               <div class="col-xs-10">
+                  <small class="report-date">${date.toLocaleDateString()}</small> ${report.message}
                </div>
-               <div class="detail" id="detail-${reportId}">
-                  <div class="container">
-                                 Japanese: ${report.sentence.sentence} <a href="${report.sentence.audio}" class="audioButton audioIdle" onclick="return false"></a>
-            <br>
-            English: ${report.sentence.eng}
-            <br>
-            Source: ${report.sentence.source}
-            <br>
-            <a href="${openInFirebaseUrl}" class="btn">Open in firebase</a>
-                  </div>
+               <div class="col-xs-2"><i class="fa fa-chevron-down pull-right"></i></div>
+            </div>
+            <div class="detail" id="detail-${reportId}">
+               <div class="container">
+                  Japanese: ${report.sentence.sentence} <a href="${report.sentence.audio}" class="audioButton audioIdle" onclick="return false"></a>
+                  <br>
+                  English: ${report.sentence.eng}
+                  <br>
+                  Source: ${report.sentence.source}
+                  <br>
+                  <a href="${openInFirebaseUrl}" class="btn">Open in firebase</a>
                </div>
+            </div>
             </li>
         `);
 
