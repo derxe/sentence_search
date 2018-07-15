@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Sentence Search - Reports</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
+</head>
+
+<body>
+
+<style>
+    .report-date {
+        color: gray;
+    }
+
+    .report-solved {
+        background: #e1ffe1
+    }
+
+</style>
+
+<script>
+    let reportedSentenceUrl = "https://receptomanijalogi.firebaseio.com/report.json";
+    let reports;
+
+    console.log("Getting all the sentences")
+    $(document).ready(() => {
+        console.log("Getting all the sentences")
+
+        $.get(reportedSentenceUrl, function (reports) {
+            console.log(reports);
+
+            let sortedKeys = Object.keys(reports).sort(function (a, b) {
+                return reportsComapre(reports[a], reports[b])
+            })
+            for (var i = 0; i < sortedKeys.length; i++) {
+                let reportId = sortedKeys[i];
+                appendReport(reports[reportId], reportId);
+            }
+            handleAudio();
+            $('.toggle').click(function () {
+                $input = $(this);
+                $target = $('#' + $input.attr('data-toggle'));
+                $target.slideToggle();
+            });
+        })
+            .fail(function () {
+                console.error("Error loading sentences");
+            })
+    });
+
+    function reportsComapre(a, b) {
+        // if both are not solved or both are solved
+        // might be wrong since one might be undefined and the other set to false but the ! infort should convert
+        // them both to booleans
+        if (!a.solved == !b.solved) return new Date(b.date) - new Date(a.date);
+
+        if (!a.solved) return -1;
+        if (!b.solved) return 1;
+    }
+
+
+    function appendReport(report, reportId) {
+        let date = new Date(report.date);
+        date.toLocaleDateString();
+
+        let openInFirebaseUrl = "https://console.firebase.google.com/u/0/project/receptomanijalogi/database/receptomanijalogi/data/report/" + reportId;
+
+        template = $(`
+            <li class="list-group-item ${report.solved ? "report-solved" : ""}">
+               <div class="row toggle" id="dropdown-detail-${reportId}" data-toggle="detail-${reportId}">
+                  <div class="col-xs-10">
+                     <small class="report-date">${date.toLocaleDateString()}</small> ${report.message}
+                  </div>
+                  <div class="col-xs-2"><i class="fa fa-chevron-down pull-right"></i></div>
+               </div>
+               <div class="detail" id="detail-${reportId}">
+                  <div class="container">
+                                 Japanese: ${report.sentence.sentence} <a href="${report.sentence.audio}" class="audioButton audioIdle" onclick="return false"></a>
+            <br>
+            English: ${report.sentence.eng}
+            <br>
+            Source: ${report.sentence.source}
+            <br>
+            <a href="${openInFirebaseUrl}" class="btn">Open in firebase</a>
+                  </div>
+               </div>
+            </li>
+        `);
+
+        template.appendTo('#reports-list');
+        template.find(".detail").hide();
+    }
+
+
+</script>
+<div class="container">
+    <div class="row">
+        <div>
+            <h4 class="mt-3">Reports</h4>
+
+            <div class="panel panel-default">
+                <ul class="list-group" id="reports-list"></ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- preload images -->
+<div style="display:none;">
+    <img src="img/audio_loading.svg"/>
+    <img src="img/audio_idle.svg"/>
+    <img src="img/audio_error.svg"/>
+    <img src="img/audio_playing.svg"/>
+</div>
+
+<script src="script/audio.js"></script>
+
+</body>
+
+
+</html>
+
+
