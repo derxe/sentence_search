@@ -4,9 +4,9 @@ let loadPerScroll = 20; // how many results are additionaly loaded when user hit
 let firstNumResultsShown = 2; // how many results are shown when user hits search
 let lastSearchTime = 0;
 let lastSearchQuery = "";
-
+https://dekorativne-rastline.si/
 function startSearch() {
-    let query = $("#searchInput").val();
+    let query = $("#searchInput").val().trim();
     if(query.length > 0) {
       searchAndDisplay(query);
     }
