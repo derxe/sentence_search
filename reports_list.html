@@ -39,10 +39,19 @@
             let sortedKeys = Object.keys(reports).sort(function (a, b) {
                 return reportsComapre(reports[a], reports[b])
             })
+
+            let solved = 0, unsolved = 0;
             for (var i = 0; i < sortedKeys.length; i++) {
                 let reportId = sortedKeys[i];
                 appendReport(reports[reportId], reportId);
+
+                if (reports[reportId].solved) solved++;
+                else unsolved++;
             }
+
+            $('#solved-reports').text(solved);
+            $('#unsolved-reports').text(unsolved);
+
             handleAudio();
             $('.toggle').click(function () {
                 $input = $(this);
@@ -104,7 +113,7 @@
     <div class="row">
         <div>
             <h4 class="mt-3">Reports</h4>
-
+            <p>Solved: <span id="solved-reports"></span>, Unsolved: <span id="unsolved-reports"></span></p>
             <div class="panel panel-default">
                 <ul class="list-group" id="reports-list"></ul>
             </div>
