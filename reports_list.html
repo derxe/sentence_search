@@ -21,6 +21,14 @@
         background: #e1ffe1
     }
 
+    .show-on-over:hover {
+        opacity: 1;
+    }
+
+    .show-on-over {
+        opacity: 0;
+    }
+
 </style>
 
 <script>
@@ -79,6 +87,8 @@
         let date = new Date(report.date);
         date.toLocaleDateString();
 
+        if (!report.resolution) report.resolution = "<small style='color: gray;'>none</small>"
+
         let openInFirebaseUrl = "https://console.firebase.google.com/u/0/project/receptomanijalogi/database/receptomanijalogi/data/report/" + reportId;
 
         template = $(`
@@ -97,7 +107,9 @@
                   <br>
                   Source: ${report.sentence.source}
                   <br>
-                  <a href="${openInFirebaseUrl}" class="btn">Open in firebase</a>
+                  Resolution: ${report.resolution}
+                  <br>
+                  <a href="${openInFirebaseUrl}" target="_blank" class="show-on-over">Show in firebase</a>
                </div>
             </div>
             </li>
