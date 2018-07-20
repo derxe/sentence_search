@@ -1,0 +1,424 @@
+{
+  "-LGlcPpJ2mNrO2RWZZF0": {
+    "date": "Sat Jul 07 2018 01:06:17 GMT+0300 (FLE Daylight Time)",
+    "message": "Wrong audio.",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/9270.mp3",
+      "eng": "I don't have time to study.",
+      "query": "勉強",
+      "score": 0.7692307692307693,
+      "sentence": "勉強する時間がありません。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGmWodGMm2OBKT7KYF1": {
+    "date": "Fri Jul 06 2018 21:17:08 GMT-0500 (Central Daylight Time)",
+    "message": "wrong audio",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/8403.mp3",
+      "eng": "I love cake.",
+      "query": "大好き",
+      "score": 1,
+      "sentence": "ケーキが大好きです。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGmyx3O_E2KhrFpvCJl": {
+    "date": "Fri Jul 06 2018 23:24:21 GMT-0500 (Central Daylight Time)",
+    "message": "The audio is in English; \"Hello Everybody\"",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/1990_e.mp3",
+      "eng": "Hello. Everybody.",
+      "query": "hello",
+      "score": 1.1764705882352942,
+      "sentence": "こんにちは。皆さん。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGn45A3yPwE0-SzFQVE": {
+    "date": "Fri Jul 06 2018 23:51:12 GMT-0500 (Central Daylight Time)",
+    "message": "Audio doesn't match Japanese",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/8403.mp3",
+      "eng": "I love cake.",
+      "query": "love",
+      "score": 1.6666666666666667,
+      "sentence": "ケーキが大好きです。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": "duplicate"
+  },
+  "-LGn5sZuaE6K8iO366C9": {
+    "date": "Fri Jul 06 2018 23:59:01 GMT-0500 (Central Daylight Time)",
+    "message": "Audio is completely wrong.  It's in English?????",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/9200_e.mp3",
+      "eng": "I live in Tokyo.",
+      "query": "live",
+      "score": 1.25,
+      "sentence": "東京に住んでいます。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGn6YLY43sNWYX40FpK": {
+    "date": "Sat Jul 07 2018 00:01:56 GMT-0500 (Central Daylight Time)",
+    "message": "Audio in English, completely wrong",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/9040_e.mp3",
+      "eng": "Do you have friends?",
+      "query": "friend",
+      "score": 1,
+      "sentence": "友だちがいますか。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGn7dtPb8gxvYhADC9G": {
+    "date": "Sat Jul 07 2018 00:06:45 GMT-0500 (Central Daylight Time)",
+    "message": "in english, wrong audio",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/8298_e.mp3",
+      "eng": "Happy Birthday!",
+      "query": "happy",
+      "score": 1.3333333333333333,
+      "sentence": "誕生日おめでとう！",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGn7nzKO92Pgv3VMrJr": {
+    "date": "Sat Jul 07 2018 00:07:27 GMT-0500 (Central Daylight Time)",
+    "message": "english audio, unrelated",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/7604_e.mp3",
+      "eng": "She looks happy these days.",
+      "query": "happy",
+      "score": 0.7407407407407407,
+      "sentence": "最近、彼女は幸せそうだ。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGn9J4nX8l81dz8IWc2": {
+    "date": "Sat Jul 07 2018 00:14:00 GMT-0500 (Central Daylight Time)",
+    "message": "english audio, doesn't match",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/9656_e.mp3",
+      "eng": "I'm all right.",
+      "query": " all ",
+      "score": 1.4285714285714286,
+      "sentence": "私は大丈夫です。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGnAaV0Zfuv2R6QCibA": {
+    "date": "Sat Jul 07 2018 00:19:38 GMT-0500 (Central Daylight Time)",
+    "message": "english audio, doesn't match",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/9212_e.mp3",
+      "eng": "He lost his phone on his way home.",
+      "query": "lost",
+      "score": 0.5882352941176471,
+      "sentence": "彼は帰り道で電話を失くした。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGnFMyPKCFyBBqPQZdx": {
+    "date": "Sat Jul 07 2018 00:40:29 GMT-0500 (Central Daylight Time)",
+    "message": "english sentence, uses word \"manager\" but unrelated",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/9355_e.mp3",
+      "eng": "I became the store manager.",
+      "query": "manager",
+      "score": 0.7407407407407407,
+      "sentence": "私は店長になりました。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGnRYXy4nJMSG1v6h9k": {
+    "date": "Sat Jul 07 2018 08:33:39 GMT+0200",
+    "message": "The audio is English.",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/9502_e.mp3",
+      "eng": "I don't like rude people.",
+      "query": "失礼",
+      "score": 0.7142857142857143,
+      "sentence": "失礼な人は好きじゃないです。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGnRcuXlO7GAxTG7jw_": {
+    "date": "Sat Jul 07 2018 08:34:02 GMT+0200",
+    "message": "The audio is English.",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/8491_e.mp3",
+      "eng": "It is very impolite to sleep during an important meeting.",
+      "query": "失礼",
+      "score": 0.4166666666666667,
+      "sentence": "大事なミーティングの最中に寝るのはとても失礼だ。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGpENerzAGs4hglFt3Q": {
+    "date": "Sat Jul 07 2018 09:55:26 GMT-0500 (Central Daylight Time)",
+    "message": "completely wrong",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/9687_e.mp3",
+      "eng": "I'm good at cooking.",
+      "query": "cook",
+      "score": 1,
+      "sentence": "料理が得意です",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGpGh2InGIouVv6wzvE": {
+    "date": "Sat Jul 07 2018 10:05:32 GMT-0500 (Central Daylight Time)",
+    "message": "english sentence, uses \"typhoons\" but not even right sentence..",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/8894_e.mp3",
+      "eng": "When typhoons move across Japan, public transportation cannot function properly.",
+      "query": "transportation",
+      "score": 0.25,
+      "sentence": "台風が上陸すると、交通機関がまひします。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGpLbsweKSn0rjV8sgZ": {
+    "date": "Sat Jul 07 2018 10:27:01 GMT-0500 (Central Daylight Time)",
+    "message": "en audio",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/10314_e.mp3",
+      "eng": "His family welcomed me.",
+      "query": "family",
+      "score": 0.8695652173913043,
+      "sentence": "彼の家族は私を歓迎してくれた。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGpMTPkZJGaAB4JtJH3": {
+    "date": "Sat Jul 07 2018 10:30:44 GMT-0500 (Central Daylight Time)",
+    "message": "en sentence, wrong",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/8473_e.mp3",
+      "eng": "The shop clerk is wearing a funny uniform.",
+      "query": "uniform",
+      "score": 0.47619047619047616,
+      "sentence": "お店の人はおかしな制服を着ている。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGqOeugTWL6uApwj0Zk": {
+    "date": "Sat Jul 07 2018 16:19:57 GMT-0400 (EDT)",
+    "message": "Audio says \"Some people have different jobs to make a living\" in English. That doesn't match the Japanese sentence nor the English sentence.",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/8380_e.mp3",
+      "eng": "I have a part-time job at a Korean restaurant.",
+      "query": "korean",
+      "score": 0.43478260869565216,
+      "sentence": "韓国料理屋でアルバイトをしている。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGt08TwsQ3gQ5qodO2l": {
+    "date": "Sun Jul 08 2018 03:31:39 GMT-0500 (Central Daylight Time)",
+    "message": "It sounds like the sentence should be 完全なシステムの構築を目指しています。",
+    "sentence": {
+      "audio": "http://klet.home.kg/anki_5k_media/rec1409112219.mp3",
+      "eng": "I aim at the construction of a complete system.",
+      "query": "構築",
+      "score": 0.5882352941176471,
+      "sentence": "完全なシステムの構築を目指します。",
+      "source": "anki5k"
+    },
+    "solved": true
+  },
+  "-LGtF1K0HAy6iRV9UW-_": {
+    "date": "Sun Jul 08 2018 18:37:37 GMT+0900 (Japan Standard Time)",
+    "message": "This is in english",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/7749_e.mp3",
+      "eng": "I love Japanese-style bars.",
+      "query": "居酒屋",
+      "score": 0.7692307692307693,
+      "sentence": "日本の居酒屋が大好きです。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGxiH5BFWNCvQajSNjF": {
+    "date": "Mon Jul 09 2018 08:30:08 GMT+0200 (Central European Daylight Time)",
+    "message": "No audio.\n",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/2405.mp3",
+      "eng": "I'm worried.",
+      "query": "います",
+      "score": 1.25,
+      "sentence": "心配しています。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LGxjGlmeFO3NGw7oJhY": {
+    "date": "Mon Jul 09 2018 08:34:30 GMT+0200 (Central European Daylight Time)",
+    "message": "Different audio.　The sentence is 本屋のにおいが大好きだ。",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/8460.mp3",
+      "eng": "I'm at the bookstore now.",
+      "query": "います",
+      "score": 1.1111111111111112,
+      "sentence": "今、本屋にいます。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LH--w_AMTNenLH4Ar0t": {
+    "date": "Mon Jul 09 2018 19:10:55 GMT+0200 (Central European Daylight Time)",
+    "message": "Different audio.",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/9187.mp3",
+      "eng": "What do you think?",
+      "query": "か。",
+      "score": 1.25,
+      "sentence": "どう思いますか。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LH2PQAcVAX_pxctNQxH": {
+    "date": "Tue Jul 10 2018 11:01:07 GMT+0200 (Central European Daylight Time)",
+    "message": "No English.",
+    "sentence": {
+      "audio": "http://klet.home.kg/anki_5k_media/rec1414663380.mp3",
+      "eng": "",
+      "query": "深",
+      "score": 0.625,
+      "sentence": "若者はもっと注意深く運転すべし。",
+      "source": "anki5k"
+    },
+    "solved": true
+  },
+  "-LH8BUAQW8T4AVD9FzcI": {
+    "date": "Wed Jul 11 2018 13:57:57 GMT+0200 (Central European Daylight Time)",
+    "message": "No audio",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/6604.mp3",
+      "eng": "What kind of wedding band do you think is good?",
+      "query": "思",
+      "score": 0.5882352941176471,
+      "sentence": "どんな結婚指輪がいいと思いますか。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LHCEoeTHFlApeqDwEGw": {
+    "date": "Thu Jul 12 2018 08:51:00 GMT+0200 (Central European Daylight Time)",
+    "message": "different audio\n",
+    "resolution": "Remove sentence. Correct audio was not found. Mistake was made on jpod101 side",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/4088.mp3",
+      "eng": "May I help you? What would you like to order?",
+      "query": "いらっし",
+      "score": 0.45454545454545453,
+      "sentence": "いらっしゃいませ。ご注文は何になさいますか。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LHCmy-ZWo4W9HS_ZqBQ": {
+    "date": "Thu Jul 12 2018 11:24:34 GMT+0200 (Central European Daylight Time)",
+    "message": "no audio\n",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/6811.mp3",
+      "eng": "If you want to be popular, you should stop talking in such a snobbish manner.",
+      "query": "なら",
+      "score": 0.3448275862068966,
+      "sentence": "人気者になりたいなら、そのきざな話し方をやめたほうがいい。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LHbd-TCPHXlztMlSuvW": {
+    "date": "Tue Jul 17 2018 11:51:13 GMT+0200 (Central European Daylight Time)",
+    "message": "no audio　声が出ない\n",
+    "resolution": "It looks like my server where audio is stored went down since audio now plays without problems",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/1836.mp3",
+      "eng": "I'm embarrassed because I was seen falling down.",
+      "query": "んだ",
+      "score": 0.5555555555555556,
+      "sentence": "転んだところを見られて、恥ずかしい。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LHgekL6HFyu4CAWnwjq": {
+    "date": "Wed Jul 18 2018 11:14:14 GMT+0200 (Mitteleuropaische Sommerzeit)",
+    "message": "Somehow all of the sentences are not able to play or be downloaded. Thank you very much for this site. I hope it can be fixed soon!",
+    "resolution": "Server went down. Audio should now work",
+    "sentence": {
+      "audio": "http://klet.home.kg/anki_6k_media/788d1c38bbce42bd2e5e5e9a1d55795e.mp3",
+      "eng": "He's listening to music on the stereo.",
+      "query": "彼はステレオで音楽を聞いた",
+      "score": 0.7142857142857143,
+      "sentence": "彼はステレオで音楽を聞いた。",
+      "source": "anki6k"
+    },
+    "solved": true
+  },
+  "-LHlq1xGjNadV3mT4E0Z": {
+    "date": "Thu Jul 19 2018 11:24:24 GMT+0200 (Central European Daylight Time)",
+    "message": "She says  いけない　not　ならない。",
+    "resolution": "Change it to fit her reading.",
+    "sentence": {
+      "audio": "http://klet.home.kg/www.japanesepod101.com/learningcenter/audio/vocabulary/sample/5829.mp3",
+      "eng": "If my father gets laid off, I will have to quit school.",
+      "query": "ならない",
+      "score": 0.37037037037037035,
+      "sentence": "父がリストラされたら、私は学校をやめなければならない。",
+      "source": "jpod101_lessons-examples"
+    },
+    "solved": true
+  },
+  "-LHn-sywZxvfGvLEj33Y": {
+    "date": "Thu Jul 19 2018 16:51:23 GMT+0200 (Central European Daylight Time)",
+    "message": "試聴者 is wrong - it should be 視聴者.\n",
+    "resolution": "Looks like jpod101 are a bit sloppy with their sentences :P",
+    "sentence": {
+      "audio": "http://klet.home.kg/d1pra95f92lrn3.cloudfront.net/audio/976726.mp3",
+      "eng": "A TV station must balance entertainment and news to keep its audience watching.",
+      "query": "テレビ局は試聴者が見続けられるように、エンターテイメントとニュースのバランスをとらなければなりません。",
+      "score": 0.19607843137254902,
+      "sentence": "テレビ局は試聴者が見続けられるように、エンターテイメントとニュースのバランスをとらなければなりません。",
+      "source": "jpod101_word-list"
+    },
+    "solved": true
+  },
+  "-LHrABGLZG3IsVnIGVKW": {
+    "date": "Fri Jul 20 2018 12:14:54 GMT+0200 (Central European Daylight Time)",
+    "message": "She pronounces it 多くではない\nIn the book it's \n3547 そこそこ sokosoko adv. about; in a hurry;\nall right\n•• 多くはないが、そこそこの収入がある。 — It’s\nnot a lot but I have a reasonable income.",
+    "resolution": "Looks like the lady reading the sentence made a mistake. I fix to fit her reading since I think that adding て does not make sentence incorrect. ",
+    "sentence": {
+      "audio": "http://klet.home.kg/anki_5k_media/rec1409117000.mp3",
+      "eng": "It’s not a lot but I have a reasonable income.",
+      "query": "はない",
+      "score": 0.5555555555555556,
+      "sentence": "多くはないが、そこそこの収入がある。",
+      "source": "anki5k"
+    },
+    "solved": true
+  }
+}
