@@ -59,7 +59,7 @@
                     console.log("Report successfully sendededed!")
 
                     $("#submit-report").html("Report Sent");
-                    $("#lovely-message").show();
+                    $("#after-report-message").show();
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.error("Error sending a report", ajaxOptions, thrownError);
@@ -103,9 +103,14 @@
             </div>
             <br>
             <div id="error-message" class="alert alert-danger" style="display:none"></div>
-            <div id="lovely-message" class="alert alert-success" style="display:none">
-                Thank you so much for submitting your report. <br>
-                Your contribution is much appreciated <3
+            <div id="after-report-message" style="display:none">
+                <div class="alert alert-success">
+                    Thank you so much for submitting your report. <br>
+                    Your contribution is much appreciated <3
+                </div>
+                You can find all the reports including yours here:
+                <a id="submit-report" class="btn btn-outline-secondary btn-sm" href="/reports_list.html">View
+                    reports</a>
             </div>
         </div>
     </div>
