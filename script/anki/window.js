@@ -128,7 +128,7 @@ function ankiAddNewNoteFromFields() {
     let errorBox = $(".anki-add-note-error");
     let addButtonText = addButton.html();
 
-    addButton.attr("disabled", "disabled");
+    addButton.attr("disabled", true);
     addButton.html("Adding ... ")
     errorBox.hide();
 
@@ -141,7 +141,7 @@ function ankiAddNewNoteFromFields() {
             errorBox.html("Error while adding the note: <b>" + errorMessage + "</b>");
             errorBox.show();
 
-            addButton.attr("disabled", "false");
+            addButton.attr("disabled", false);
             addButton.html(addButtonText)
         } else {
             // note successfully added
