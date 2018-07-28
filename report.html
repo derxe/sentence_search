@@ -78,8 +78,6 @@
             $("#lovely-message").hide();
             $("#error-message").hide();
 
-            console.log("Posting report:", report);
-            return;
             $.ajax({
                 type: "POST",
                 url: "https://receptomanijalogi.firebaseio.com/report.json",
