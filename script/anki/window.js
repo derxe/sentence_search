@@ -117,7 +117,7 @@ function ankiAddNewNoteFromFields() {
 
     // note object that we will sand to anki api
     note = {
-        "deckName": "autoadd",
+        "deckName": "Default::autoadd",
         "modelName": $(".anki-model").val(),
         "fields": fields,
         "tags": ["autoadd"],
