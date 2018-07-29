@@ -13,6 +13,8 @@
 <body>
 
 <script>
+    let userDetails = {};
+  
     function getQueryParams(qs) {
         qs = qs.split('+').join(' ');
 
@@ -26,8 +28,32 @@
 
         return params;
     }
+    
+    function gatherUserDetails() {
+      $.getJSON('https://ipapi.co/json/', function(data) {
+        userDetails["ip"] = data;
+      });
+      
+      // collect some data from navigator object
+      userDetails.navigator = {};
+      let properties = ["appCodeName", "appName", "appVersion", 
+        "language", "langauges", "platform", "product", "productSub", 
+        "userAgent", "vendor"];
+      let i;
+      for(i=0; i<properties.length; i++){
+          userDetails.navigator[properties[i]] = navigator[properties[i]];
+      }
+      
+      userDetails.screen = screen;
+      userDetails.screen["docW"] = document.width;
+      userDetails.screen["docH"] = document.height;
+      userDetails.screen["inw"] = innerWidth;
+      userDetails.screen["inH"] = innerHeight;
+    }
 
     $(document).ready(() => {
+        gatherUserDetails();
+      
         let params = getQueryParams(document.location.search);
         let rawJson = decodeURIComponent(params.sen);
         let reportedSentence = JSON.parse(rawJson);
@@ -35,7 +61,7 @@
         $("#jap").html(reportedSentence.sentence);
         $("#eng").html(reportedSentence.eng);
         $("#audio").attr("href", reportedSentence.audio);
-        handleAudio();
+        handleAudio(); // plays audio when play button is clicked
 
         $("#submit-report").click(() => {
             let reportMessage = $("#report-message").val();
@@ -43,7 +69,8 @@
             let report = {
                 "date": new Date() + "",
                 "message": reportMessage,
-                "sentence": reportedSentence
+                "sentence": reportedSentence,
+                "user_details": userDetails
             }
 
             $("#submit-report").attr("disabled", "disabled");
