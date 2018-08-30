@@ -4,7 +4,7 @@ let loadPerScroll = 20; // how many results are additionaly loaded when user hit
 let firstNumResultsShown = 2; // how many results are shown when user hits search
 let lastSearchTime = 0;
 let lastSearchQuery = "";
-https://dekorativne-rastline.si/
+
 function startSearch() {
     let query = $("#searchInput").val().trim();
     if(query.length > 0) {
@@ -102,8 +102,8 @@ function loadMoreResultsOnScroll() {
   let distanceToBottom = $(document).height() - $(window).height() - $(window).scrollTop();
   
   //$("#info").html(Math.round(distanceToBottom));
-
-    if (results && results.length > 0 && distanceToBottom < 600) {
+  
+  if(results && results.length > 0 && distanceToBottom < 600) {
       let atTheEnd = displayResults(results, visibleResults);
     if(atTheEnd) $("#results-list-end").show();
     return !atTheEnd;
