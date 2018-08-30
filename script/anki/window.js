@@ -117,7 +117,7 @@ function ankiAddNewNoteFromFields() {
 
     // note object that we will sand to anki api
     note = {
-        "deckName": "Default::autoadd",
+        "deckName": "Default::Autoadd",
         "modelName": $(".anki-model").val(),
         "fields": fields,
         "tags": ["autoadd"],
@@ -154,7 +154,7 @@ function ankiAddNewNoteFromFields() {
                     anki.guiBrowse("nid:" + response.result)
                 }
             });
-            errorBox.parent().append(showAddedCardButton);
+            errorBox.parent().prepend(showAddedCardButton);
         }
     });
 }
@@ -265,7 +265,7 @@ async function ankiNotesResultsPopulate(query) {
     let deckName = $(".anki-deck").val();
     if (deckName) limitQuery += '"deck:' + deckName + '" ';
 
-    let firstFiledName = $(".anki-fields .anki-field-name").first().text();
+    let firstFiledName = "Vocabulary-Kanji";//$(".anki-fields .anki-field-name").first().text();
     if (firstFiledName) limitQuery += '"' + firstFiledName + ':*' + query + '*"';
     else limitQuery += query;
 
@@ -402,6 +402,8 @@ fieldRowHtmlTemplate = `
 
 ankiDialogHtmlTemplate = `
 <div id="anki-window" class="mb-lg-3">
+   <div class="alert alert-danger anki-add-note-error" style="display:none"> </div>
+   <button class="btn btn-primary anki-add-note-button"> Add Note To Anki</button>
    <div class="form-group">
       <label for="interface-server">Interface server</label>
       <input type="text" id="interface-server" class="form-control" value="http://localhost:8765">
@@ -436,8 +438,6 @@ ankiDialogHtmlTemplate = `
                 <tbody></tbody>
              </table>
          </div>
-         <div class="alert alert-danger anki-add-note-error" style="display:none"> </div>
-         <button class="btn btn-primary anki-add-note-button"> Add Note To Anki</button>
       </div>
    </div>
 </div>
