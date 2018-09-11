@@ -56,8 +56,8 @@ function displayProgress(req, evt) {
   }else {
     var total = req.getResponseHeader('content-length');
     if(!total) {
-      console.error("Unable to get total download size from header persuming the file size to be 1MB");
-      total = 1000000;
+      console.error("Unable to get total download size from header persuming the file size to be 1.3MB");
+      total = 1300000;
     }
     fileSize = total;
     var encoding = req.getResponseHeader('content-encoding')
