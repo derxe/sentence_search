@@ -2,6 +2,11 @@ body {
   font-family: "Noto Sans", sans-serif;
 }
 
+.title {
+  margin: 3em 0 5em 0;
+  text-align: -webkit-center
+}
+
 .ibox-content {
     background-color: #FFFFFF;
     color: inherit;
@@ -157,7 +162,7 @@ body {
 }
 
 .input-group {
-   border: 1px solid transparent;    
+   border: 1px solid transparent;
     -webkit-transition: border 0.4s linear, box-shadow 0.4s linear;
        -moz-transition: border 0.4s linear, box-shadow 0.4s linear;
             transition: border 0.4s linear, box-shadow 0.4s linear;
