@@ -85,13 +85,14 @@ function displayResults(results, start, end) {
 
   end = Math.min(end, results.length);
 
-    for (let i = start; i < end; i++) {
+  for (let i = start; i < end; i++) {
     appendNewSearchResult(results[i], i);
   }
 
   visibleResults = end;
   handleAudio();
-    return visibleResults === results.length;
+
+  return visibleResults === results.length;
 }
 
 /*
@@ -131,7 +132,7 @@ function appendNewSearchResult(result, index) {
     let resultElement = $(`
   <div class="search-result">
       <small class="sentence-number">${index + 1}</small>
-      <span class="jap">'${setQueryBold(result.query, result.sentence)}</span>
+      <span class="jap">${setQueryBold(result.query, result.sentence)}</span>
       <span class="eng">${setQueryBold(result.query, result.eng)}</span>
       <a href="${result.audio}" class="audioButton audioIdle" onclick="return false" title="Play sound"></a>
       <a class="audioDownload show-on-hover" href="${result.audio}" target="_blank" download="${result.sentence}.mp3" title="Download audio"></a>

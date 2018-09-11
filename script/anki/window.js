@@ -5,7 +5,7 @@ let options = {
     "server": "http://localhost:8765"
 };
 
-let anki = new AnkiConnect("http://127.0.0.1:8765");
+let anki = new AnkiConnect(options.server);
 
 let replaceFields = {
     "Expression": "",
@@ -73,7 +73,7 @@ async function newAnkiDialog(dialog, sentence) {
     $('.anki-search-card').submit(utilAsync(onSearchNotesAction));
     $('.anki-search-results').change(utilAsync(onAnkiSearchResultChanged));
 
-    // it is necessary for this function to AWAUT so tha tit fills all the fileds 
+    // it is necessary for this function to AWAUT so tha tit fills all the fileds
     // which's values can be latter fieled with ankiNotesResultsPopulate()
     await ankiDeckAndModelPopulate();
 
@@ -416,7 +416,7 @@ ankiDialogHtmlTemplate = `
          </div>
          <div class="form-group">
              <label for="anki-model">Model</label>
-             <select class="form-control anki-model" id="anki-model"></select>    
+             <select class="form-control anki-model" id="anki-model"></select>
          </div>
          <form class="form-inline anki-search-card" onsubmit="return false;">
             <label class="mr-sm-2 mb-0" for="anki-query">Search for autofill:</label>
@@ -425,7 +425,7 @@ ankiDialogHtmlTemplate = `
          </form>
          <div class="form-group">
              <label for="anki-terms-model">Search Results</label>
-             <select class="form-control anki-search-results"></select>    
+             <select class="form-control anki-search-results"></select>
          </div>
          <div class="col-sm-12">
              <table class="table anki-fields">
@@ -442,4 +442,3 @@ ankiDialogHtmlTemplate = `
    </div>
 </div>
  `;
- 
