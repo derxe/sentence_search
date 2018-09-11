@@ -3,7 +3,7 @@ var sentences = [];
 
 $(document).ready(function() {
   let wordListsUrls = [
-      "./data/all_v4.json"
+      "./data/all_v5.json"
   ]
 
   for(let i=0; i<wordListsUrls.length; i++) {
