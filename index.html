@@ -67,7 +67,7 @@
                                                                           class="text-navy">"Bootdey"</b>.
                     </small>
                     <small>Search time (<span id="search-time">0.23</span> seconds)</small>
-                </div>
+                </div>                
                 <div class="enable-anki">
                     <input type="checkbox" class="mt-lg-3"
                            onclick="this.checked ? $('.anki-add').show() : $('.anki-add').hide()"> Enable adding cards
@@ -85,9 +85,27 @@
                     <p> Search the collection of <b><span id="nSentences">24 000</span></b> sentences, all with native
                         audio</p>
                     
+                    <h5><b>Problems with downloading audio</b></h5>
+                    
+                    Some of you reported that the download function no longer works. Here is my response to that:
+                    
+                    <p>The problem is that browser does not allow downloading anything that is not on the same server. The audio files and the webpage are sadly due to loggical and prerformance issues stored on a different servers.
+                    There are a couple solutions to this: </p>
+                    <ul>
+                      <li>Move webpage to the server where audio files are stored. The problem with that is that the audio server is kinda slow and the webpage will take a while to load. Also I am hosting the server myself and is thus not very reliable</li>
+                      <li>The second option is to move audio file to the current server. The problem here is that the server provider "neocities" does not allow storing audio files unless you become a supporter, but that consts $5 per month. I am not willing to pay that much per month but if you are I would gladly move audio files. </li>
+                      <li>Find a different server provider. If anyone knows any free hosting or are willing to provide one please contact and I will happily move webpage there :)</li> 
+                    </ul>
+                    <p><b>Workaround:</b> You can still download audio files by saving them manually. When the new windows with audio opens just press <b>Ctrl+S</b> <i>(or open menu and select "Save Page as ...")</i> and the audio will get saved. <p>
+                    <p><b>Workaround if you are using Anki:</b>If you are using Anki you can just copy audio URL and paste it into the filed and it will get downloaded automatically. You can get audio URL by right clicking "the play audio icon" and selecting <i>Copy Link Location</i>
+                    <p><i>I should really implemen a bug reporting feature instead of communicating like this :P. </i></p>
+                    
+                    <br>
                     <h5><b>v0.5:</b> Added additional 4000 sentences, and removed duplicates .... again</h5>
+                    <small><i>(30.8.2018)</i></small>
                     <p> Included all unique sentences from 10k anki deck! Now the coleection has more than 26k senteces!! :)
-                    I also removed all the duplicate sentences that have the same japanese but different translation. In previous versions duplicate sentences were already removed but I managed to used older version of sentence parser that doesn't filter them out. <p>                    <p> Sentences were geathered from various sources:</p>
+                    I also removed all the duplicate sentences that have the same japanese but different translation. In previous versions duplicate sentences were already removed but I managed to used older version of sentence parser that doesn't filter them out. <p>
+                    <p> Sentences were geathered from various sources:</p>
                     <ul>
                         <li>iKnow
                             <ul>
@@ -161,5 +179,6 @@
 
 
 </html>
+
 
 
