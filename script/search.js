@@ -5,6 +5,16 @@ let firstNumResultsShown = 2; // how many results are shown when user hits searc
 let lastSearchTime = 0;
 let lastSearchQuery = "";
 
+
+function isLocalHost() {
+  return location.hostname === "localhost" || 
+    location.hostname === "127.0.0.1" || 
+    location.hostname === "";
+}
+
+// if webpage is server locally then get audio files from the local server
+let audioServerPath = isLocalHost()? "audio/" : "http://klet.home.kg/"
+
 function startSearch() {
     let query = $("#searchInput").val().trim();
     if(query.length > 0) {
@@ -169,7 +179,7 @@ function search(query) {
         if(score > 0) {
             let result = {
             "sentence": sentence.jap,
-            "audio" : sentence.audio_jap,
+            "audio" : audioServerPath + sentence.audio_jap,
             "eng" : sentence.eng,
             "source" : sentence.source,
             "score" : score,

@@ -3,3 +3,4 @@
 **v3**: fix all the japanespod101 audio that was paresed incorrectly
 **v4**: Add senteces unique from 10k deck anki deck. Fix repeating english sentences. The problem was that I used an old parser to create v3 and v2 files so there are duplicate sentences in there.  
 **v5**: Add sentences from lingodeer and bunpro. Also remove multitple english translations. 
+**v6**: Add 3k glossika sentences. Remove server domain from url (the "http://klet.home.kg")
