@@ -1,198 +1,201 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-  <title>Sentence Search</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="script/download_sentences.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.png">
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120824873-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-120824873-1');
-    </script>
-</head>
-
-
-<body>
-  <div class="container bootstrap snippet">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="ibox float-e-margins">
-
-          <div class="search-form">
-            <form name="searchForm" action="javascript:startSearch()">
-              <div class="input-group">
-                <input
-                                    type="text"
-                                    placeholder="search for a sentence"
-                                    name="search"
-                                    value="starting to load sentences ...."
-                                    id="searchInput"
-                                    class="form-control input-lg mr-1"
-                                    disabled>
-
-                <div class="input-group-btn">
-                  <button
-                                        id="searchButton"
-                                        class="btn btn-lg btn-primary"
-                                        type="submit"
-                                        disabled>
-                                    <ruby>
-                                        <rb>検索</rb>
-                                        <rp>(</rp>
-                                        <rt>けんさく</rt>
-                                        <rp>)</rp>
-                                    </ruby>
-                                </button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div id="results-info" style="display: none;">
-            <small>
-                <b id="num-results">160</b> results found for: <b id="search-word" class="text-navy">"Bootdey"</b>.
-            </small>
-            <small>Search time (<span id="search-time">0.23</span> seconds)</small>
-          </div>
-          <div id="search-results-list"></div>
-          <div id="results-list-end" class="mb-5 mt-2" style="display:none;">That's all folks!</div>
-          <div id="site-info">
-            <div class="title">
-              <h3> Search Japanese sentences with native audio!</h3>
-              <p> Search the collection of <b><span id="nSentences">29000</span></b> sentences, all with native audio <small>(Beta v.7 <small>19.9.2018</small>)</small></p>
+   <head>
+      <title>Sentence Search</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <script src="script/download_sentences.js"></script>
+      <link rel="stylesheet" href="style.css">
+      <link rel="icon" href="favicon.png">
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120824873-1"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         
+             function gtag() {
+                 dataLayer.push(arguments);
+             }
+         
+             gtag('js', new Date());
+         
+             gtag('config', 'UA-120824873-1');
+      </script>
+   </head>
+   <body>
+      <div class="container bootstrap snippet">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="ibox float-e-margins">
+                  <div class="search-form">
+                     <form name="searchForm" action="javascript:startSearch()">
+                        <div class="input-group">
+                           <input
+                              type="text"
+                              placeholder="search for a sentence"
+                              name="search"
+                              value="starting to load sentences ...."
+                              id="searchInput"
+                              class="form-control input-lg mr-1"
+                              disabled>
+                           <div class="input-group-btn">
+                              <button
+                                 id="searchButton"
+                                 class="btn btn-lg btn-primary"
+                                 type="submit"
+                                 disabled>
+                                 <ruby><rb>検索</rb><rp>(</rp><rt>けんさく</rt><rp>)</rp></ruby>
+                              </button>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+                  <div id="results-info" style="display: none;">
+                     <small>
+                     <b id="num-results">160</b> results found for: <b id="search-word" class="text-navy">"Bootdey"</b>.
+                     </small>
+                     <small>Search time (<span id="search-time">0.23</span> seconds)</small>
+                  </div>
+                  <div id="search-results-list"></div>
+                  <div id="results-list-end" class="mb-5 mt-2" style="display:none;">That's all folks!</div>
+                  <div id="site-info">
+                     <div class="title">
+                        <h3> Search Japanese sentences with native audio!</h3>
+                        <p> Search the collection of <b><span id="nSentences">29000</span></b> sentences, all with native audio</p>
+                     </div>
+                     <div class="actions">
+                        <button class="btn btn-outline-secondary" data-toggle="collapse" data-target="#about"> About</button>
+                        <button class="btn btn-outline-secondary" data-toggle="collapse" data-target="#updates"> Updates</button>
+                        <button class="btn btn-outline-secondary" data-toggle="collapse" data-target="#contact"> Contact</button>
+                     </div>
+                     <div id="topics">
+                        <div id="contact" class="collapse" data-parent="#topics">
+                           <h4>Feedback</h4> TODO
+                           
+                           <hr>
+                           <h4>My responses</h4>
+                           <h5>Problems with downloading audio</h5>
+                           Some of you reported that the download function no longer works. Here is my response to that:
+                           <p>The problem is that browser does not allow downloading anything that is not on the same server. The audio files and the webpage are sadly due to loggical and prerformance issues stored on a different servers.
+                              There are a couple solutions to this: 
+                           </p>
+                           <ul>
+                              <li>Move webpage to the server where audio files are stored. The problem with that is that the audio server is kinda slow and the webpage will take a while to load. Also I am hosting the server myself and is thus not very reliable</li>
+                              <li>The second option is to move audio file to the current server. The problem here is that the server provider "neocities" does not allow storing audio files unless you become a supporter, but that consts $5 per month. I am not
+                                 willing to pay that much per month but if you are I would gladly move audio files. 
+                              </li>
+                              <li>Find a different server provider. If anyone knows any free hosting or are willing to provide one please contact and I will happily move webpage there :)</li>
+                           </ul>
+                           <p><b>Workaround:</b> You can still download audio files by saving them manually. When the new windows with audio opens just press <b>Ctrl+S</b> <i>(or open menu and select "Save Page as ...")</i> and the audio will get saved. </p>
+                           <p><b>Workaround if you are using Anki:</b>If you are using Anki you can just copy audio URL and paste it into the filed and it will get downloaded automatically. You can get audio URL by right clicking "the play audio icon" and
+                              selecting <i>Copy Link Location</i>
+                           </p>
+                           <p><i>I should really implemen a bug reporting feature instead of communicating like this :P. </i></p>
+                           <br>
+                        </div>
+                        <div id="updates" class="collapse" data-parent="#topics">
+                           <h4>Updates</h4>
+                           <br>
+                           <h5><b>v0.7:</b> Added another 3000 sentences from Glossika</h5>
+                           <p><small><i>(19.9.2018)</i></small>
+                              Collection of 3000 sentences from a language learning service called Glossika. The sentences are from the old program and not from the new web page based service. 
+                           </p>
+                           <hr>
+                           <h5><b>v0.6:</b> Added additional 3000 sentences from bunpro and lingodeer</h5>
+                           <p><small><i>(11.9.2018)</i></small>
+                              Added sentencs gathered from lingodeer APP and bunpro learning site. They both had sentences with native pronunctiation. Most of the sentences are for
+                              beginners since this is their main audiance. I sense that bunpro might add some more sentences in the future to cover the more advance grammar points.
+                           </p>
+                           <hr>
+                           <h5><b>v0.5:</b> Added additional 4000 sentences, and removed duplicates .... again</h5>
+                           <p> <small><i>(30.8.2018)</i></small>
+                              Included all unique sentences from 10k anki deck! Now the coleection has more than 26k senteces!! :)
+                              I also removed all the duplicate sentences that have the same japanese but different translation. In previous versions duplicate sentences were already removed but I managed to used older version of sentence parser that doesn't
+                              filter them out. 
+                           </p>
+                           <hr>
+                           <h5><b>v0.4:</b> Add sentences from anki 10k deck</h5>
+                           <hr>
+                           <h5><b>v0.3:</b> Thank you all for reporting sentences</h5>
+                           <p> A small thank you to all those people who reported sentences with wrong audio. With your help
+                              I was able to find a mistake and fix around <b>500</b> sentences! 
+                              That wouldn't be possible without you. <b>Thanks :)</b>
+                        </div>
+                        <div id="about" class="collapse" data-parent="#topics">
+                           <h4>About</h4>
+                           <p> A site that gives you an option to search seantences with native pronunciation. </p>
+                           <p> Sentences were geathered from various sources:</p>
+                           <ul>
+                              <li>
+                                 iKnow
+                                 <ul>
+                                    <li><a href="https://iknow.jp/courses/750492">Minna no Nihongo</a>,</li>
+                                    <li><a href="https://iknow.jp/content/japanese">core 6k</a></li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 jpod101
+                                 <ul>
+                                    <li><a href="https://www.japanesepod101.com/japanese-word-lists/?coreX=2000">core 2k</a>,
+                                    </li>
+                                    <li><a href="https://www.japanesepod101.com/learningcenter/account/wordbank">word bank</a></li>
+                                    <li>example senteces from lessons
+                                 </ul>
+                              </li>
+                              <li>
+                                 Anki decks
+                                 <ul>
+                                    <li>Nayr's vocab deck 5k <a href="http://www.mediafire.com/file/7e34505nq7k04wk/Core5000_v2.5.apkg">link</a>
+                                    </li>
+                                    <li>6k anki deck. <a href="https://ankiweb.net/shared/info/1312109116">link</a>
+                                       <small>(They are mostly from iKnow, but some are unique)</small>
+                                    </li>
+                                    <li> 10k anki deck. <a href="https://ia801506.us.archive.org/24/items/Core10KPicsAud/Core_10K__Pics__Aud.apkg">archive</a>, <a href="https://mega.nz/#!Ego2yQQQ!64eq1oj9ltKSHykXwmCDIr18yhgKq6Rt0-pnis8lXrY">mega</a>, <a href="https://mega.nz/#!JwYFUYpa!XutF5eeK4ziqGyvy2l2UHjuxI4DyaRS5aomtZUb91ag">mega2 </a>(no media)</a>
+                                 </ul>
+                              </li>
+                              <li><a href="https://tatoeba.org/eng/">tatoeba</a></li>
+                              <li><a href="https://bunpro.jp/">bunpro</a></li>
+                              <li><a href="https://www.lingodeer.com/">lingodeer</a></li>
+                              <li>Glossika</li>
+                           </ul>
+                           <p>If you know any more sources please
+                              contact me at <b>tonipravoime@gmail.com</b>. I will try to add
+                              them as soon as possible, depending on how difficult they are to extract :P.
+                              Thanks!
+                           </p>
+                           <br/>
+                           <p> Depending on how popular this site gets, I am going to implement the following features:</p>
+                           <ul>
+                              <li>Searching japanese sentences with romaji</li>
+                              <li><b>Adding sentences to Anki deck</b></li>
+                              <li>Advance search option (sorting, tags ...)</li>
+                              <li>Add furigana to sentences</li>
+                              <li>Reporting sentences <b>Done</b></li>
+                              <li>Bug report interface</li>
+                              <li> ...</li>
+                              <li>Any suggestions?</li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-
-            <h5>Problems with downloading audio</h5>
-
-            Some of you reported that the download function no longer works. Here is my response to that:
-
-            <p>The problem is that browser does not allow downloading anything that is not on the same server. The audio files and the webpage are sadly due to loggical and prerformance issues stored on a different servers.
-              There are a couple solutions to this: </p>
-            <ul>
-              <li>Move webpage to the server where audio files are stored. The problem with that is that the audio server is kinda slow and the webpage will take a while to load. Also I am hosting the server myself and is thus not very reliable</li>
-              <li>The second option is to move audio file to the current server. The problem here is that the server provider "neocities" does not allow storing audio files unless you become a supporter, but that consts $5 per month. I am not
-                willing to pay that much per month but if you are I would gladly move audio files. </li>
-              <li>Find a different server provider. If anyone knows any free hosting or are willing to provide one please contact and I will happily move webpage there :)</li>
-            </ul>
-
-            <p><b>Workaround:</b> You can still download audio files by saving them manually. When the new windows with audio opens just press <b>Ctrl+S</b> <i>(or open menu and select "Save Page as ...")</i> and the audio will get saved. </p>
-            <p><b>Workaround if you are using Anki:</b>If you are using Anki you can just copy audio URL and paste it into the filed and it will get downloaded automatically. You can get audio URL by right clicking "the play audio icon" and
-              selecting <i>Copy Link Location</i></p>
-            <p><i>I should really implemen a bug reporting feature instead of communicating like this :P. </i></p>
-
-            <br>
-
-
-            <span><h5><b>v0.7:</b> Added another 3000 sentences from glossika</h5>
-            <small><i>(19.9.2018)</i></small></span>
-            <p></p>
-
-            <h5><b>v0.6:</b> Added additional 3000 sentences from bunpro and lingodeer</h5>
-            <small><i>(11.9.2018)</i></small>
-            <p>Added sentencs gathered from lingodeer APP and bunpro learning site. They both had sentences with native pronunctiation. Most of the sentences are for
-              beginners since this is their main audiance. I sense that bunpro might add some more sentences in the future to cover the more advance grammar points.
-            </p>
-
-
-            <h5><b>v0.5:</b> Added additional 4000 sentences, and removed duplicates .... again</h5>
-            <small><i>(30.8.2018)</i></small>
-            <p> Included all unique sentences from 10k anki deck! Now the coleection has more than 26k senteces!! :)
-              I also removed all the duplicate sentences that have the same japanese but different translation. In previous versions duplicate sentences were already removed but I managed to used older version of sentence parser that doesn't
-              filter them out. </p>
-
-
-            <h4>Info</h4>
-            <p> Sentences were geathered from various sources:</p>
-            <ul>
-              <li>iKnow
-                <ul>
-                  <li><a href="https://iknow.jp/courses/750492">Minna no Nihongo</a>,</li>
-                  <li><a href="https://iknow.jp/content/japanese">core 6k</a></li>
-                </ul>
-              </li>
-              <li>jpod101
-                <ul>
-                  <li><a href="https://www.japanesepod101.com/japanese-word-lists/?coreX=2000">core 2k</a>,
-                  </li>
-                  <li><a href="https://www.japanesepod101.com/learningcenter/account/wordbank">word bank</a></li>
-                  <li>example senteces from lessons
-                </ul>
-              </li>
-              <li>Anki decks
-                <ul>
-                  <li>Nayr's vocab deck 5k <a href="http://www.mediafire.com/file/7e34505nq7k04wk/Core5000_v2.5.apkg">link</a>
-                  </li>
-                  <li>6k anki deck. <a href="https://ankiweb.net/shared/info/1312109116">link</a>
-                    <small>(They are mostly from iKnow, but some are unique)</small>
-                  </li>
-                  <li> 10k anki deck. <a href="https://ia801506.us.archive.org/24/items/Core10KPicsAud/Core_10K__Pics__Aud.apkg">archive</a>, <a href="https://mega.nz/#!Ego2yQQQ!64eq1oj9ltKSHykXwmCDIr18yhgKq6Rt0-pnis8lXrY">mega</a>, <a href="https://mega.nz/#!JwYFUYpa!XutF5eeK4ziqGyvy2l2UHjuxI4DyaRS5aomtZUb91ag">mega2 </a>(no media)</a>
-                </ul>
-              </li>
-              <li><a href="https://tatoeba.org/eng/">tatoeba</a></li>
-              <li><a href="https://bunpro.jp/">bunpro</a></li>
-              <li><a href="https://www.lingodeer.com/">lingodeer</a></li>
-            </ul>
-            <p>If you know any more sources please
-              contact me at <b>tonipravoime@gmail.com</b>. I will try to add
-              them as soon as possible, depending on how difficult they are to extract :P.
-              Thanks!</p>
-
-            <br/>
-            <p> Depending on how popular this site gets, I am going to implement the following features:</p>
-            <ul>
-              <li>Searching japanese sentences with romaji</li>
-              <li><b>Adding sentences to Anki deck</b></li>
-              <li>Advance search option (sorting, tags ...)</li>
-              <li>Add furigana to sentences</li>
-              <li>Reporting sentences <b>Done</b></li>
-              <li>Bug report interface</li>
-              <li> ...</li>
-              <li> Any suggestions?</li>
-            </ul>
-
-          </div>
-
-        </div>
+         </div>
+         <!-- preload images -->
+         <div style="display:none;">
+            <img src="img/audio_loading.svg"/>
+            <img src="img/audio_idle.svg"/>
+            <img src="img/audio_error.svg"/>
+            <img src="img/audio_playing.svg"/>
+         </div>
       </div>
-    </div>
-
-    <!-- preload images -->
-    <div style="display:none;">
-      <img src="img/audio_loading.svg"/>
-      <img src="img/audio_idle.svg"/>
-      <img src="img/audio_error.svg"/>
-      <img src="img/audio_playing.svg"/>
-
-
-
-
-
-
-
-    </div>
-  </div>
-
-  <script src="script/anki/util.js"></script>
-  <script src="script/anki/anki.js"></script>
-  <script src="script/anki/request.js"></script>
-  <script src="script/anki/window.js"></script>
-  <script src="script/audio.js"></script>
-  <script src="script/search.js"></script>
-</body>
-
-
+      <script src="script/anki/util.js"></script>
+      <script src="script/anki/anki.js"></script>
+      <script src="script/anki/request.js"></script>
+      <script src="script/anki/window.js"></script>
+      <script src="script/audio.js"></script>
+      <script src="script/search.js"></script>
+   </body>
 </html>
