@@ -4,7 +4,7 @@ var sentences = [];
 $(document).ready(function() {
   let wordListsUrls = [
       "./data/all_v6.json"
-  ]
+  ];
 
   for(let i=0; i<wordListsUrls.length; i++) {
     downloadSentences(wordListsUrls[i]);
@@ -26,7 +26,7 @@ function downloadSentences(url){
         onDownloadCompleate(req);
       } else {
         console.log("An error occured downloading sentences", req.statusText);
-        console.log(req.statusText)
+        console.log(req.statusText);
       }
     }
   };
@@ -35,7 +35,7 @@ function downloadSentences(url){
 
 function onDownloadCompleate(req) {
   let newSentences = req.response;
-  sentences = sentences.concat(newSentences)
+  sentences = sentences.concat(newSentences);
   $("#nSentences").text(sentences.length);
           
   let searchValue = decodeURIComponent(parent.location.hash).substring(1);
@@ -60,13 +60,13 @@ function displayProgress(req, evt) {
       total = 1300000;
     }
     fileSize = total;
-    var encoding = req.getResponseHeader('content-encoding')
+    var encoding = req.getResponseHeader('content-encoding');
     if (total && encoding && (encoding.indexOf('gzip') > -1)) {
       // assuming average gzip compression ratio to be 20%
-      total *= 5 // original size / compressed size
-      percentComplete = Math.min(100, event.loaded / total * 100)
+      total *= 5; // original size / compressed size
+      percentComplete = Math.min(100, event.loaded / total * 100);
     } else {
-      console.error('lengthComputable failed')
+      console.error('lengthComputable failed');
     }
   }
   
@@ -82,7 +82,7 @@ function flashSearchBar() {
     $(".input-group").toggleClass("active");
   };
   flash();
-  setTimeout(flash, 400)
+  setTimeout(flash, 400);
 }
 
 function bytesToSize(bytes) {
@@ -90,6 +90,6 @@ function bytesToSize(bytes) {
    if (bytes == 0) return '0 Byte';
    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
-};
+}
 
 

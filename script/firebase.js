@@ -61,10 +61,10 @@ class Firebase {
         data: JSON.stringify(message),
         success: function () {
             resolve();
-            console.log("Report successfully sendededed!")
+            console.log("Report successfully sendededed!");
         },
         error: function (xhr, textStatus, errorThrown) {
-            reject(textStatus, errorThrown )
+            reject(textStatus, errorThrown );
             console.error("Error sending a report", textStatus, errorThrown );
         },
         dataType: "json",
