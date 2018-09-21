@@ -13,8 +13,7 @@
 <body>
 
 <script>
-    let userDetails = {};
-  
+    
     function getQueryParams(qs) {
         qs = qs.split('+').join(' ');
 
@@ -29,31 +28,8 @@
         return params;
     }
     
-    function gatherUserDetails() {
-      $.getJSON('https://ipapi.co/json/', function(data) {
-        userDetails["ip"] = data;
-      });
-      
-      // collect some data from navigator object
-      userDetails.navigator = {};
-      let properties = ["appCodeName", "appName", "appVersion", 
-        "language", "langauges", "platform", "product", "productSub", 
-        "userAgent", "vendor"];
-      let i;
-      for(i=0; i<properties.length; i++){
-          userDetails.navigator[properties[i]] = navigator[properties[i]];
-      }
-      
-      userDetails.screen = screen;
-      userDetails.screen["docW"] = document.width;
-      userDetails.screen["docH"] = document.height;
-      userDetails.screen["inw"] = innerWidth;
-      userDetails.screen["inH"] = innerHeight;
-    }
 
-    $(document).ready(() => {
-        gatherUserDetails();
-      
+    $(document).ready(() => {      
         let params = getQueryParams(document.location.search);
         let rawJson = decodeURIComponent(params.sen);
         let reportedSentence = JSON.parse(rawJson);
@@ -63,43 +39,22 @@
         $("#audio").attr("href", reportedSentence.audio);
         handleAudio(); // plays audio when play button is clicked
 
-        $("#submit-report").click(() => {
+
+        sendHelper = new FirebaseMessageSendHelper(
+                $("#submit-report"),
+                $("#lovely-message"),
+                $("#error-message"));
+
+        sendHelper.onClicked(() => {
+
             let reportMessage = $("#report-message").val();
 
-            let report = {
-                "date": new Date() + "",
+            return firebase.sendReport({
                 "message": reportMessage,
                 "sentence": reportedSentence,
-                "user_details": userDetails
-            }
+            }); 
+        })
 
-            $("#submit-report").attr("disabled", "disabled");
-            $("#submit-report").html("Sending ...");
-            $("#lovely-message").hide();
-            $("#error-message").hide();
-
-            $.ajax({
-                type: "POST",
-                url: "https://receptomanijalogi.firebaseio.com/report.json",
-                data: JSON.stringify(report),
-                success: function () {
-                    console.log("Report successfully sendededed!")
-
-                    $("#submit-report").html("Report Sent");
-                    $("#after-report-message").show();
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console.error("Error sending a report", ajaxOptions, thrownError);
-                    $("#submit-report").attr("disabled", false);
-                    $("#submit-report").html("Try again?");
-
-                    $("#error-message").html("There was an error sending the report: " + thrownError);
-                    $("#error-message").show();
-                },
-                dataType: "json",
-                contentType: "application/json"
-            });
-        });
     });
 
 
@@ -130,11 +85,9 @@
             </div>
             <br>
             <div id="error-message" class="alert alert-danger" style="display:none"></div>
-            <div id="after-report-message" style="display:none">
-                <div class="alert alert-success">
-                    Thank you so much for submitting your report. <br>
-                    Your contribution is much appreciated <3
-                </div>
+            <div id="lovely-message" class="alert alert-success" style="display:none">
+                Thank you so much for submitting your report. <br>
+                Your contribution is much appreciated &lt;3
             </div>
             You can find all the reports including yours here
             <a id="submit-report" class="btn btn-outline-secondary btn-sm" href="/reports_list.html">View
@@ -153,6 +106,7 @@
 </div>
 
 <script src="script/audio.js"></script>
+<script src="script/firebase.js"></script>
 
 </body>
 
