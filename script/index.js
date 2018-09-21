@@ -4,6 +4,7 @@
 
 $(document).ready(() => { 
 
+    // manage sending contact message to firebase
     sendHelper = new FirebaseMessageSendHelper(
         $("#send-contact-message"),
         $("#send-successful"),
