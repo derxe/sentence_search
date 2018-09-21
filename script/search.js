@@ -51,6 +51,8 @@ function searchAndDisplay(query) {
   lastSearchTime = search_Time;
   lastSearchQuery = query;
 
+  $('#search-form').attr("class", null); // remove bootstrap lg-8 class so it covers the whole screen 
+  $('#site-title').hide("fade");
   $("#results-info").hide();
   $("#site-info").hide();
   $("#results-list-end").hide();
@@ -137,7 +139,6 @@ function appendNewSearchResult(result, index) {
 
   // display Anki button only if page is not served on neocities
   displayAnkiButton = window.location.href.indexOf("neocities") == -1;
-  console.log(displayAnkiButton);
 
     let resultElement = $(`
   <div class="search-result">

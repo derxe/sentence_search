@@ -4,16 +4,13 @@ body {
 
 .title {
   margin: 4em 0 3em 0;
-  text-align: -webkit-center
+  text-align: center;
 }
 
-.updates small {
-  margin-
-}
 
 .actions {
   display: block;
-  text-align: -webkit-center;
+  text-align: center;
   margin: 0em 0 2em 0;
 }
 
@@ -134,9 +131,13 @@ body {
   background-repeat: no-repeat;
 }
 
-.search-form {
-    margin-top: 10px;
+#search-form {
+    float: none;
+    margin: 10px auto 0px auto;
+    transition: width 2s;
+    padding: 0;
 }
+
 
 #site-info {
   margin-top: 25px;
