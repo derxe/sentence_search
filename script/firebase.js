@@ -77,9 +77,8 @@ class Firebase {
 function gatherUserDetails() {
   let userDetails = {};
 
-  $.getJSON('https://ipapi.co/json/', function(data) {
-    userDetails["ip"] = data;
-  });
+  
+  userDetails["ip"] = getUserIpDetails();
   
   // collect some data from navigator object
   userDetails.navigator = {};
@@ -98,6 +97,21 @@ function gatherUserDetails() {
   userDetails.screen["inH"] = innerHeight;
   
   return userDetails;
+}
+
+function getUserIpDetails() {
+  let ipDetails = {};
+  $.ajax({
+    url: "https://ipapi.co/json/",
+    dataType: 'json',
+    async: false,
+    timeout: 2000,
+    success: function(data) {
+      ipDetails = data;
+    }
+  });
+
+  return ipDetails;
 }
 
 
