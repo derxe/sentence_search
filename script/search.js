@@ -15,6 +15,7 @@ function isLocalHost() {
 let audioServerPath = isLocalHost()? location.origin+"/audio/" : "http://klet.home.kg/"
 
 function startSearch() {
+  console.log($("#search-form").serialize())
     let query = $("#searchInput").val().trim();
     if(query.length > 0) {
       searchAndDisplay(query);
@@ -56,6 +57,7 @@ function searchAndDisplay(query) {
   $("#site-info").hide();
   $("#results-list-end").hide();
   $('#search-results-list').empty();
+  $('#filter-button').show("fade");
 
   // set search query into url hash
     updateUrlHashAndTitle(query);

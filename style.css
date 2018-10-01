@@ -7,6 +7,30 @@ body {
   text-align: center;
 }
 
+#filter-button button {
+    height: 100%;
+    padding: 5px 25px;
+    border: solid lightgray 1px;
+    border-right: none;
+    border-radius: 0.25em 0px 0px 0.25em;
+}
+
+.filter-group {
+    margin-top: 15px;
+}
+
+
+#filter-box {
+    background-color: rgb(252, 252, 252);
+    border: 2px solid rgb(233, 233, 233);
+    padding: 10px 20px;
+    border-top: none;
+}
+
+label.checkbox-fw, label.radio-fw {
+    width: 180px;
+}
+
 
 .actions {
   display: block;

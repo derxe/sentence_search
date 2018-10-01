@@ -43,31 +43,72 @@
                     <div id="search-form" class="col-lg-8">
                         <form name="searchForm" action="javascript:startSearch()">
                             <div class="input-group">
+                                    <div class="dropdown dropdown-lg" id="filter-button" style="display:none">
+                                            <button class="btn btn-light dropdown-toggle" >
+                                                Filter <span class="caret"></span></button></div>
+
                                 <input type="text" placeholder="search for a sentence" name="search" value="starting to load sentences ...."
                                     id="searchInput" class="form-control input-lg mr-1" disabled>
-                                <div class="input-group-btn">
+                                
+                                    <div class="input-group-btn">
                                     <button id="searchButton" class="btn btn-lg btn-primary" type="submit" disabled>
-                                        <ruby>
-                                            検索
-                                            <rp>(</rp>
-                                            <rt>けんさく</rt>
-                                            <rp>)</rp>
-                                        </ruby>
+                                        Search
                                     </button>
                                 </div>
                             </div>
                         </form>
                     </div>
+
+                    <div id="filter-box" style="display:none;" >
+                    <div class="row filter-group" id="rip_type_section" >
+                    <label for="collection" class="col-lg-2 control-label">Collecion Source</label>
+                    <div class="col-lg-10">
+                            <label class="checkbox-fw">
+                            <input name="collection[]" type="checkbox" value="1"> BDRip
+                            </label>
+                            <label class="checkbox-fw">
+                            <input name="collection[]" type="checkbox" value="2"> BluRay
+                            </label>
+                            <label class="checkbox-fw">
+                            <input name="collection[]" type="checkbox" value="3"> BluRay Raw
+                            </label>
+                            <label class="checkbox-fw">
+                            <input name="collection[]" type="checkbox" value="4"> BluRay REMUX
+                            </label>
+                            <label class="checkbox-inline pl-0">
+                            <a href="javascript:void(0);" class="clear-checkbox btn-link" data-id="rip_type[]">clear</a></label>
+                        </div>
+                    </div>
+                    <hr>
+                    
+                    <div class="row filter-group">
+                    <label for="sentence-length" class="col-lg-2 control-label">Length</label>
+                    <div class="col-lg-10">
+                                                    
+                            
+                            <label class="checkbox-fw"> <input name="collection[]" type="checkbox" value="4"> &lt; 5 </label>
+
+                            <label class="checkbox-fw"> <input name="collection[]" type="checkbox" value="4"> 5 - 15 </label>
+                            <label class="checkbox-fw"> <input name="collection[]" type="checkbox" value="4"> 15 - 30 </label>
+                            <label class="checkbox-fw"> <input name="collection[]" type="checkbox" value="4"> 30 + </label>
+                            
+                            <a href="javascript:void(0);" class="clear-checkbox btn-link" data-id="rip_type[]">clear</a></label>
+                        </div>
+                    </div>
+                </div>
+
                     
 
 
+ 
+                        <div id="results-info" style="display: none;">
+                            <small>
+                                <b id="num-results">160</b> results found for: <b id="search-word" class="text-navy">"Bootdey"</b>.
+                            </small>
+                            <small>Search time (<span id="search-time">0.23</span> seconds)</small>
+                        </div>
+                
 
-                    <div id="results-info" style="display: none;">
-                        <small>
-                            <b id="num-results">160</b> results found for: <b id="search-word" class="text-navy">"Bootdey"</b>.
-                        </small>
-                        <small>Search time (<span id="search-time">0.23</span> seconds)</small>
-                    </div>
 
                     <div id="search-results-list"></div>
                     <div id="results-list-end" class="mb-5 mt-2" style="display:none;">That's all folks!</div>
@@ -289,6 +330,9 @@
     <script src="script/index.js"></script>
     <script src="script/audio.js"></script>
     <script src="script/search.js"></script>
+
+    <script src="external/multirange/multirange.js"></script>
+    <link rel="stylesheet" href="external/multirange/multirange.css">
 </body>
 
 </html>
