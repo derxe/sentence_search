@@ -1,3 +1,4 @@
+var lastTimeUpdated = 0;
 var sentences = [];
 
 
@@ -33,9 +34,13 @@ function downloadSentences(url){
   req.send();
 }
 
+
+
 function onDownloadCompleate(req) {
   let newSentences = req.response;
   sentences = sentences.concat(newSentences);
+  lastTimeUpdated = new Date();
+
   $("#nSentences").text(sentences.length);
           
   let searchValue = decodeURIComponent(parent.location.hash).substring(1);
