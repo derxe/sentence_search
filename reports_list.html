@@ -43,7 +43,7 @@
             console.log(reports);
 
             // since sorting objects is not possible we first extract the keys
-            // sorth them and then use them to display the sorted data
+            // sort them and then use them to display the sorted data
             let sortedKeys = Object.keys(reports).sort(function (a, b) {
                 return reportsComapre(reports[a], reports[b])
             })
@@ -74,7 +74,7 @@
 
     function reportsComapre(a, b) {
         // if both are not solved or both are solved
-        // might be wrong since one might be undefined and the other set to false but the ! infort should convert
+        // might be wrong since one might be undefined and the other set to false but the ! in front should convert
         // them both to booleans
         if (!a.solved == !b.solved) return new Date(b.date) - new Date(a.date);
 

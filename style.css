@@ -9,26 +9,37 @@ body {
 
 #filter-button button {
     height: 100%;
-    padding: 5px 25px;
+    padding: 5px 20px;
     border: solid lightgray 1px;
     border-right: none;
     border-radius: 0.25em 0px 0px 0.25em;
 }
 
+.filter-group:nth-of-type(1) {
+    padding-top: 15px;
+}
+
 .filter-group {
-    margin-top: 15px;
+    padding: 0px 20px 0px 20px;
 }
 
 
 #filter-box {
     background-color: rgb(252, 252, 252);
     border: 2px solid rgb(233, 233, 233);
-    padding: 10px 20px;
     border-top: none;
 }
 
+.filter-group > label {
+    margin-bottom: 15px;
+}
+
 label.checkbox-fw, label.radio-fw {
-    width: 180px;
+    margin: 0px 25px 15px 0px;
+}
+
+.btn-link {
+    margin-bottom: 25px;
 }
 
 
