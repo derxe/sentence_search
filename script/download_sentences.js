@@ -56,25 +56,29 @@ function displayProgress(req, evt) {
   let fileSize;
   
   if(evt.lengthComputable) {
-      percentComplete = evt.loaded / evt.total * 100;
-      fileSize = evt.total;
+    total = evt.total;
+    fileSize = evt.total;
   }else {
+    // try to esitimate length from content lengh
     var total = req.getResponseHeader('content-length');
     if(!total) {
-      console.error("Unable to get total download size from header persuming the file size to be 1.6MB");
-      total = 1600000;
+      // guess content length
+      console.error("Unable to get total download size from header persuming the file size to be 1.7MB");
+      total = 1700000;
     }
     fileSize = total;
     var encoding = req.getResponseHeader('content-encoding');
     if (total && encoding && (encoding.indexOf('gzip') > -1)) {
       // assuming average gzip compression ratio to be 20%
       total *= 5; // original size / compressed size
-      percentComplete = event.loaded / total;
     } else {
       console.error('lengthComputable failed');
     }
   }
+
+  percentComplete =  Math.min(event.loaded / total * 100, 100);
   
+  // create loading string to be displayed
   let loadingString = "Loading";
   if(percentComplete) loadingString += " " + parseFloat(percentComplete).toFixed(0) + " %";
   if(fileSize) loadingString += " (" + bytesToSize(fileSize) + ")";
