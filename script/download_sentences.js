@@ -61,22 +61,22 @@ function displayProgress(req, evt) {
   }else {
     var total = req.getResponseHeader('content-length');
     if(!total) {
-      console.error("Unable to get total download size from header persuming the file size to be 1.3MB");
-      total = 1300000;
+      console.error("Unable to get total download size from header persuming the file size to be 1.6MB");
+      total = 1600000;
     }
     fileSize = total;
     var encoding = req.getResponseHeader('content-encoding');
     if (total && encoding && (encoding.indexOf('gzip') > -1)) {
       // assuming average gzip compression ratio to be 20%
       total *= 5; // original size / compressed size
-      percentComplete = Math.min(100, event.loaded / total * 100);
+      percentComplete = event.loaded / total;
     } else {
       console.error('lengthComputable failed');
     }
   }
   
   let loadingString = "Loading";
-  if(percentComplete) loadingString += " " + Math.round(percentComplete) +" %";
+  if(percentComplete) loadingString += " " + parseFloat(percentComplete).toFixed(0) + " %";
   if(fileSize) loadingString += " (" + bytesToSize(fileSize) + ")";
   
   $("#searchInput").val(loadingString);
@@ -94,7 +94,7 @@ function bytesToSize(bytes) {
    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
    if (bytes == 0) return '0 Byte';
    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-   return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+   return parseFloat(bytes / Math.pow(1024, i)).toFixed(1) + ' ' + sizes[i];
 }
 
 
