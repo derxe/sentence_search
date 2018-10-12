@@ -190,8 +190,6 @@ function search(query) {
   for (let i = 0; i < sentences.length; i++) {
     let sentence = sentences[i];
 
-
-
     let score = scoreSentence(query, sentence);
     if (score > 0 && checkSentenceAgainstFilters(sentence)) {
       let result = {
